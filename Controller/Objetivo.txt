@@ -1,1 +1,1 @@
-Teste
+Aqui fica localizado o controle da aplicação, seguindo o padrão MVC
