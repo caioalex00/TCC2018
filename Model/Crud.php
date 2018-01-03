@@ -27,8 +27,6 @@ function create($pdo,$Nome,$Email,$DataNascimento,$Senha){
         echo 'Erro ao Registrar: ' . $ex->getMessage();
     }
 }
-//Exemplo de inserção;
-//create($pdo,"Caio Alexandre", "caioxandres2000@gmail.com", "2000-07-16", "OlaMundo");
 
 //Leitura de  dados | READ
 function read($pdo){
@@ -36,10 +34,3 @@ function read($pdo){
     $stmt->execute();
     return $stmt->fetchAll();
 }
-//Exemplo de Leitura
-/*
-echo '<pre>';
-$Usuarios = read($pdo);
-print_r($Usuarios);
-echo '</pre>';
-*/
