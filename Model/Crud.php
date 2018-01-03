@@ -29,3 +29,17 @@ function create($pdo,$Nome,$Email,$DataNascimento,$Senha){
 }
 //Exemplo de inserção;
 //create($pdo,"Caio Alexandre", "caioxandres2000@gmail.com", "2000-07-16", "OlaMundo");
+
+//Leitura de  dados | READ
+function read($pdo){
+    $stmt = $pdo->prepare("SELECT * FROM `usuarios`");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+//Exemplo de Leitura
+/*
+echo '<pre>';
+$Usuarios = read($pdo);
+print_r($Usuarios);
+echo '</pre>';
+*/
