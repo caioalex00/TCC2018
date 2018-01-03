@@ -30,7 +30,32 @@ function create($pdo,$Nome,$Email,$DataNascimento,$Senha){
 
 //Leitura de  dados | READ
 function read($pdo){
-    $stmt = $pdo->prepare("SELECT * FROM `usuarios`");
-    $stmt->execute();
-    return $stmt->fetchAll();
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM `usuarios`");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        
+    } catch (Exception $ex) {
+        echo "Erro ao Ler dados: " . $ex->getMessage();
+    }
+    
 }
+
+//Atualização de Dados | UPDATE
+function update($pdo,$id,$nome,$email,$dataNascimento,$senha){
+    try {
+        $stmt = $pdo->prepare("UPDATE `usuarios` SET `Nome`=?,`Email`=?,`DataNascimento`=?,`Senha`= ? WHERE `ID`=?");
+    
+        $stmt->bindParam(1, $nome);
+        $stmt->bindParam(2, $email);
+        $stmt->bindParam(3, $dataNascimento);
+        $stmt->bindParam(4, $senha);
+        $stmt->bindParam(5, $id);
+        $stmt->execute();
+        
+    } catch (Exception $ex) {
+        echo "Erro ao atualizar dados: " . $ex->getMessage();
+    }
+
+}
+
