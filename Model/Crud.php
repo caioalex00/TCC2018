@@ -59,3 +59,14 @@ function update($pdo,$id,$nome,$email,$dataNascimento,$senha){
 
 }
 
+//Excluindo dados | DELETE
+function delete($pdo,$id){
+    try {
+        $stmt = $pdo->prepare("DELETE FROM `usuarios` WHERE `ID`=?");
+        $stmt->bindParam(1, $id);
+        $stmt->execute();
+    } catch (Exception $ex) {
+        echo "Erro ao excluir dados: " . $ex->getMessage();
+    }
+
+}
