@@ -30,10 +30,6 @@ class Conexao {
         
         return $this->conexao;
     }
-    
-    public function desconectar(){
-        $this->conexao = NULL;
-    }
 
     private function getHost() {
         return $this->host;
@@ -51,7 +47,7 @@ class Conexao {
         return $this->senha;
     }
 
-    function getTipo() {
+    private function getTipo() {
         return $this->tipo;
     }
 
