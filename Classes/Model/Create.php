@@ -1,42 +1,42 @@
 <?php
-class Create {
-    private $conexao;
+class Create extends Conexao{
     private $tabela;
     private $dadosTabela;
     private $dadosValues;
     private $dadosArray;
     private $queryFinal;
     
-    public function __construct($conexao,$tabela,$dadosTabela,$dadosValues) {
-        
+    public function __construct($tabela,$dadosTabela,$dadosValues) {  
         $this->tabela = $tabela;
         $this->dadosTabela = $dadosTabela;
-        $this->dadosValues = $dadosValues;
-        $this->conexao = $conexao;
-        $this->queryFinal = ($this->prepararQuery($dadosValues));
-        $this->executarQuery();
+        $this->dadosValues = $dadosValues;  
     }
     
-    private function prepararQuery($dadosValues) {
-         $arrayDadosValues = explode(",", $dadosValues);
-         $numDeParametros = "";
-         for ($i = 0; $i < count($arrayDadosValues);$i++){
+    public function ExecutarQuery(){
+        $this->prepararQuery();
+        $this->executar();
+    }
+    
+    private function prepararQuery() {
+        $arrayDadosValues = explode(",", $this->dadosValues);
+        $numDeParametros = "";
+        for ($i = 0; $i < count($arrayDadosValues);$i++){
              
-             $numDeParametros .= "?,";
-         }
+            $numDeParametros .= "?,";
+        }
          
-         $Parametros = substr($numDeParametros,0,-1);
+        $Parametros = substr($numDeParametros,0,-1);
          
-         $query = "INSERT INTO " . $this->tabela . "(" . $this->dadosTabela . ") " . "VALUES(" . $Parametros . ")";
+        $query = "INSERT INTO " . $this->tabela . "(" . $this->dadosTabela . ") " . "VALUES(" . $Parametros . ")";
          
-         $this->dadosArray = $arrayDadosValues;
-         return $query;
-         
+        $this->dadosArray = $arrayDadosValues;
+        $this->queryFinal =  $query;
+        
     }
     
-    private function executarQuery() {
+    private function executar() {
         try {
-            $con = $this -> conexao -> conectar();
+            $con = $this -> conectar();
             $pdo = $con -> prepare($this->queryFinal);
             
             $array = $this->dadosArray;

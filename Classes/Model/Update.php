@@ -1,6 +1,5 @@
 <?php
-class Update {
-    private $conexao;
+class Update extends Conexao{
     private $tabela;
     private $colunas;
     private $valores;
@@ -8,17 +7,19 @@ class Update {
     private $condicaoValor;
     private $queryFinal;
     
-    public function __construct($conexao, $tabela, $colunas, $valores, $condicaoColuna, $condicaoValor) {
-        $this->conexao = $conexao;
+    public function __construct($tabela, $colunas, $valores, $condicaoColuna, $condicaoValor) {
         $this->tabela = $tabela;
         $this->colunas = $colunas;
         $this->valores = $valores;
         $this->condicaoColuna = $condicaoColuna;
         $this->condicaoValor = $condicaoValor;
-        $this->prepararQuery();
-        $this->executarQuery();
     }
     
+    public function executarQuery(){
+        $this->prepararQuery();
+        $this->executar();
+    }
+
     private function prepararQuery() {
         $query = "UPDATE " . $this->tabela . " SET ";
         $arrayColunas = explode(",", $this->colunas);
@@ -31,9 +32,9 @@ class Update {
         $this->queryFinal =  $query;
     }
     
-    private function executarQuery(){
+    private function executar(){
         try {
-        $con = $this -> conexao -> conectar();
+        $con = $this -> conectar();
         $pdo = $con -> prepare($this -> queryFinal);
         $array = explode(",", $this->valores);
         $numParam = count($array);

@@ -1,17 +1,19 @@
 <?php
-class Read {
-    private $conexao;
+class Read extends Conexao{
     private $tabela;
     private $procura;
     private $queryFinal;
     private $colunas;
 
-    public function __construct($conexao,$tabela,$colunas,$procura) {
-        $this -> conexao = $conexao;
+    public function __construct($tabela,$colunas,$procura) {
         $this -> tabela = $tabela;
         $this -> procura = $procura;
         $this -> colunas = $colunas;
-        $this -> prepararQuery();
+    }
+    
+    public function executarQuery() {
+        $this->prepararQuery();
+        return $this->executar();
     }
     
     private function prepararQuery() {
@@ -31,13 +33,13 @@ class Read {
             }
         }
         
-        echo $this -> queryFinal = $query;
+        $this -> queryFinal = $query;
     }
     
-    public function executarQuery(){
+    private function executar(){
         try {
             
-            $con = $this-> conexao -> conectar();
+            $con = $this->conectar();
             $pdo = $con -> prepare($this->queryFinal);
             $array = explode(",", $this->procura);
             $numParam = count($array);
@@ -45,13 +47,20 @@ class Read {
             for($i = 1, $j = 0;$j < $numParam;$i++,$j++){
                 $pdo -> bindParam($i, $array[$j]);
             }
+            
             $pdo -> execute();
+            $VerificarQtdresultados = $pdo->rowCount();
+            
+            if($VerificarQtdresultados == 1){
+                $resultado = $pdo->fetchAll(PDO::FETCH_ASSOC);
+            }else{
+                $resultado = "Não foi encontrado resultados!";
+            }  
             
         } catch (Exception $ex) {
             echo $ex -> getMessage(); 
         }
         
-        $resultado = $pdo->fetchAll();
         return $resultado;
     }
             

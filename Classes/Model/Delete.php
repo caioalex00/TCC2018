@@ -1,18 +1,19 @@
 <?php
-class Delete {
-    private $conexao;
+class Delete extends Conexao{
     private $tabela;
     private $condicaoColuna;
     private $condicaoValor;
     private $queryFinal;
     
-    public function __construct($conexao,$tabela, $condicaoColuna, $condicaoValor) {
-        $this->conexao = $conexao;
+    public function __construct($tabela, $condicaoColuna, $condicaoValor) {
         $this->tabela = $tabela;
         $this->condicaoColuna = $condicaoColuna;
         $this->condicaoValor = $condicaoValor;
+    }
+    
+    public function executarQuery() {
         $this->prepararQuery();
-        $this->executarQuery();
+        $this->executar();
     }
 
     private function prepararQuery(){
@@ -20,9 +21,9 @@ class Delete {
         $this->queryFinal = $query;
     }
     
-    private function executarQuery(){
+    private function executar(){
         try {
-            $con = $this -> conexao -> conectar();
+            $con = $this -> conectar();
             $pdo = $con -> prepare($this->queryFinal);
             $pdo -> bindParam(1, $this->condicaoValor);
             $pdo -> execute();

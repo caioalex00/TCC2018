@@ -6,10 +6,6 @@ class Conexao {
     private $senha;
     private $tipo;
     
-    public function __construct() {
-        $this->definirValores();
-    }
-    
     private function definirValores(){
         $this->host = "localhost";
         $this->dbname = "tcc2018";
@@ -19,10 +15,12 @@ class Conexao {
     }
 
 
-    public function conectar(){
+    protected function conectar(){
+        $this->definirValores();
+        
         try {
             
-            $this->conexao = new PDO($this->getTipo() . ':host=' . $this->getHost() . ';dbname=' . $this->getDbname(), $this->getUsuario(), $this->getSenha());
+            $this->conexao = new PDO($this->tipo . ':host=' . $this->host . ';dbname=' . $this->dbname, $this->usuario, $this->senha);
             
         } catch (Exception $ex) {
             echo 'Erro na conexão: ' . $ex->getMessage();
@@ -30,27 +28,5 @@ class Conexao {
         
         return $this->conexao;
     }
-
-    private function getHost() {
-        return $this->host;
-    }
-
-    private function getDbname() {
-        return $this->dbname;
-    }
-
-    private function getUsuario() {
-        return $this->usuario;
-    }
-
-    private function getSenha() {
-        return $this->senha;
-    }
-
-    private function getTipo() {
-        return $this->tipo;
-    }
-
-    
 
 }
