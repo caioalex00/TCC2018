@@ -1,16 +1,18 @@
 <?php
+require_once __DIR__ . "/" . "Conexao.php";
 class Update extends Conexao{
     private $tabela;
-    private $colunas;
-    private $valores;
+    private $dadosTabela;
+    private $dadosValues;
     private $condicaoColuna;
     private $condicaoValor;
     private $queryFinal;
     
-    public function __construct($tabela, $colunas, $valores, $condicaoColuna, $condicaoValor) {
+    public function __construct($tabela, $dadosTabela, $dadosValues, $condicaoColuna, $condicaoValor) {
+        parent::__construct();
         $this->tabela = $tabela;
-        $this->colunas = $colunas;
-        $this->valores = $valores;
+        $this->dadosTabela = $dadosTabela;
+        $this->dadosValues = $dadosValues;
         $this->condicaoColuna = $condicaoColuna;
         $this->condicaoValor = $condicaoValor;
     }
@@ -22,7 +24,7 @@ class Update extends Conexao{
 
     private function prepararQuery() {
         $query = "UPDATE " . $this->tabela . " SET ";
-        $arrayColunas = explode(",", $this->colunas);
+        $arrayColunas = explode(",", $this->dadosTabela);
         $colunasRef = "";
         for ($i = 0;$i < count($arrayColunas);$i++){
             $arrayColunas[$i] .= " = ?";
@@ -36,7 +38,7 @@ class Update extends Conexao{
         try {
         $con = $this -> conectar();
         $pdo = $con -> prepare($this -> queryFinal);
-        $array = explode(",", $this->valores);
+        $array = explode(",", $this->dadosValues);
         $numParam = count($array);
         
         for($i = 1, $j = 0;$j < $numParam;$i++,$j++){

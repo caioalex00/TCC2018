@@ -6,6 +6,10 @@ class Conexao {
     private $senha;
     private $tipo;
     
+    public function __construct() {
+        $this->definirValores();
+    }
+    
     private function definirValores(){
         $this->host = "localhost";
         $this->dbname = "tcc2018";
@@ -16,7 +20,6 @@ class Conexao {
 
 
     protected function conectar(){
-        $this->definirValores();
         
         try {
             

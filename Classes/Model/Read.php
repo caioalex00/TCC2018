@@ -1,14 +1,18 @@
 <?php
+require_once __DIR__ . "/" . "Conexao.php";
 class Read extends Conexao{
     private $tabela;
-    private $procura;
+    private $dadosValues;
+    private $dadosTabela;
     private $queryFinal;
-    private $colunas;
-
-    public function __construct($tabela,$colunas,$procura) {
+    private $resultado;
+    
+    public function __construct($tabela,$dadosTabela,$dadosValues) {
+        parent::__construct();
         $this -> tabela = $tabela;
-        $this -> procura = $procura;
-        $this -> colunas = $colunas;
+        $this -> dadosValues = $dadosValues;
+        $this -> dadosTabela = $dadosTabela;
+        $this -> resultado = "Resultado não disponivel!"; 
     }
     
     public function executarQuery() {
@@ -18,9 +22,9 @@ class Read extends Conexao{
     
     private function prepararQuery() {
         $query = "SELECT * FROM " . $this -> tabela;
-        $arrayColunas = explode(",", $this -> colunas);
+        $arrayColunas = explode(",", $this -> dadosTabela);
         
-        if(!empty($this->colunas)){
+        if(!empty($this->dadosTabela)){
             
             $query .= " WHERE ";
             
@@ -41,7 +45,7 @@ class Read extends Conexao{
             
             $con = $this->conectar();
             $pdo = $con -> prepare($this->queryFinal);
-            $array = explode(",", $this->procura);
+            $array = explode(",", $this->dadosValues);
             $numParam = count($array);
 
             for($i = 1, $j = 0;$j < $numParam;$i++,$j++){
@@ -58,10 +62,15 @@ class Read extends Conexao{
             }  
             
         } catch (Exception $ex) {
-            echo $ex -> getMessage(); 
+            $resultado = $ex -> getMessage(); 
         }
         
-        return $resultado;
+        $this->resultado =  $resultado;
     }
-            
+    
+    public function getResultado() {
+        return $this->resultado;
+    }
+
+
 }

@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/" . "Conexao.php";
 class Delete extends Conexao{
     private $tabela;
     private $condicaoColuna;
@@ -6,6 +7,7 @@ class Delete extends Conexao{
     private $queryFinal;
     
     public function __construct($tabela, $condicaoColuna, $condicaoValor) {
+        parent::__construct();
         $this->tabela = $tabela;
         $this->condicaoColuna = $condicaoColuna;
         $this->condicaoValor = $condicaoValor;
