@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/" . "Conexao.php";
+//require_once __DIR__ . "/" . "Conexao.php";
 class Delete extends Conexao{
     private $tabela;
     private $condicaoColuna;

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/" . "Conexao.php";
+//require_once __DIR__ . "/" . "Conexao.php";
 class Create extends Conexao{
     private $tabela;
     private $dadosTabela;
