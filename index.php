@@ -13,7 +13,7 @@
         $dadosTabela = "ID,Nome,Email,DataNascimento,Senha";
         $dadosValues = "NULL,Caio Alexandre,caioxandres2000@gmail.com,2000-07-16,OlaMundo";
         $create = new Create($tabela, $dadosTabela, $dadosValues);
-        $create -> ExecutarQuery();
+        $create -> executarQuery();
         */
        ?>
         
@@ -23,7 +23,7 @@
         /*
         $tabela = "usuarios";
         $dadosTabela = "ID,Nome";
-        $dadosValues = "6,Caio Alexandre";
+        $dadosValues = "1,Caio Alexandre";
         
         $read = new Read($tabela, $dadosTabela, $dadosValues);
         $read->executarQuery();
@@ -41,7 +41,7 @@
         $dadosTabela = "Nome,Email";
         $dadosValues = "Luciana Sousa,lucydiamond@hotmail.com";
         $condicaoColuna = "ID";
-        $condicaoValor = 7;
+        $condicaoValor = 1;
         
         $update = new Update($tabela, $dadosTabela, $dadosValues, $condicaoColuna, $condicaoValor);
         $update->executarQuery();

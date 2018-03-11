@@ -1,12 +1,42 @@
 <?php
-//require_once __DIR__ . "/" . "Conexao.php";
+
+/**
+ * @project: librason
+ * @name: Read
+ * @description: Classe que realiza A função READ do CRUD ou seja ler o dados 
+ * contidos no banco
+ * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+ * @author Caio Alexandre De Sousa Ramos
+ * @email caioxandres2000@gmail.com
+ * @version 0.2 - 10/02/2018
+ * @métodos executarQuery(), prepararQuery(), executar(), getResultado()
+ */
 class Read extends Conexao{
+    
+    /** @var string $tabela armazena o nome da tabela onde os dados serão lidos */
     private $tabela;
+    
+    /** @var string $dadosValues armazena os dados que serão lidos na tabela */
     private $dadosValues;
+    
+    /** @var string $dadosTabela armazena o nome das colunas onde os dados serão lidos */
     private $dadosTabela;
+    
+    /** @var string $queryFinal armazena a query que sera gerada pelo metodo prepararQuery() para execução posterior */ 
     private $queryFinal;
+    
+    /** @var string $resultado armazena o resultado obtido da execulção da query pelo metodo executar()*/
     private $resultado;
     
+    /**
+     * @Descrição: Armazena os valores necessarios na instanciação e executa o 
+     * metodo construct da Classe herdada Conexao
+     * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.2 - 10/03/2018
+     * @param string $tabela armazena o nome da tabela obtido na instanciação
+     * @param string $dadosTabela armazena o nome das colunas onde os dados serão lidos
+     * @param string $dadosValues armazena os dados que serão usados para indicar a linha a ser lida
+     */
     public function __construct($tabela,$dadosTabela,$dadosValues) {
         parent::__construct();
         $this -> tabela = $tabela;
@@ -15,11 +45,25 @@ class Read extends Conexao{
         $this -> resultado = "Resultado não disponivel!"; 
     }
     
+    /**
+     * @Descrição: Executa os metódos prepararQuery() e executar() um depois do outro
+     * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.2 - 10/03/2018
+     * @parametros Sem parâmetros
+     */
     public function executarQuery() {
         $this->prepararQuery();
         return $this->executar();
     }
     
+    /**
+     * @Descrição: Esse metódo e responsavel por gerar a query que ira ler os 
+     * dados armazenados no banco e por fim armazenar a query gerada no atributo
+     * $queryFinal
+     * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.2 - 10/03/2018
+     * @parametros Sem parâmetros
+     */
     private function prepararQuery() {
         $query = "SELECT * FROM " . $this -> tabela;
         $arrayColunas = explode(",", $this -> dadosTabela);
@@ -40,6 +84,13 @@ class Read extends Conexao{
         $this -> queryFinal = $query;
     }
     
+    /**
+     * @Descrição: Responsavel por executar a query gerada no metodo prepararQuery()
+     * e armazenamento do resultado no atributo $resultado
+     * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.2 - 10/02/2018
+     * @parametros Sem parâmetros
+     */ 
     private function executar(){
         try {
             
@@ -68,6 +119,12 @@ class Read extends Conexao{
         $this->resultado =  $resultado;
     }
     
+    /**
+     * @Descrição: retorna valor contido no atributo $resultado
+     * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.2 - 10/03/2018
+     * @parametros Sem parâmetros
+     */ 
     public function getResultado() {
         return $this->resultado;
     }
