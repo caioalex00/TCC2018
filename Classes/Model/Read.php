@@ -28,6 +28,8 @@ class Read extends Conexao{
     /** @var string $resultado armazena o resultado obtido da execulção da query pelo metodo executar()*/
     private $resultado;
     
+    /** @var string $qtsResultado armazena a quanridade de resultados */
+    private $qtsResultado;
     /**
      * @Descrição: Armazena os valores necessarios na instanciação e executa o 
      * metodo construct da Classe herdada Conexao
@@ -66,12 +68,15 @@ class Read extends Conexao{
      */
     private function prepararQuery() {
         $query = "SELECT * FROM " . $this -> tabela;
+        //Separamos os nomes das conunas do banco em um array
         $arrayColunas = explode(",", $this -> dadosTabela);
         
+        //Aqui preparamos o WHERE da query, para indentificarmos quais informações devem ser lidas
         if(!empty($this->dadosTabela)){
-            
+            //Montamos a variavel com o WHERE
             $query .= " WHERE ";
             
+            //Nesse repetidor montamos a query adicionando as colunas necessarias mais o "=?" e o AND quando necessario
             for ($i = 0;$i < count($arrayColunas);$i++){
                 if($i != 0 ){
                     $query .= " AND ";
@@ -80,7 +85,7 @@ class Read extends Conexao{
                 $query .= $arrayColunas[$i] . " = ?";
             }
         }
-        
+        //Armazenamos a qlizuery gerada para utilização futura
         $this -> queryFinal = $query;
     }
     
@@ -93,29 +98,35 @@ class Read extends Conexao{
      */ 
     private function executar(){
         try {
-            
+            //Realizamos conexao com o banco
             $con = $this->conectar();
+            //Preparamos a query
             $pdo = $con -> prepare($this->queryFinal);
+            //Separamos os dados em um array
             $array = explode(",", $this->dadosValues);
             $numParam = count($array);
-
+            
+            //Inserimos os dados no bindParam por meio de um repetidor
             for($i = 1, $j = 0;$j < $numParam;$i++,$j++){
                 $pdo -> bindParam($i, $array[$j]);
             }
-            
+            //Executamos a query
             $pdo -> execute();
-            $VerificarQtdresultados = $pdo->rowCount();
+            //Armazenamos a quantidade e resultados obtidos
+            $this->qtsResultado = $pdo->rowCount();
             
-            if($VerificarQtdresultados == 1){
+            if($this->qtsResultado >= 1){
                 $resultado = $pdo->fetchAll(PDO::FETCH_ASSOC);
             }else{
-                $resultado = "Não foi encontrado resultados!";
+                $resultado = "Não foram encontrado resultados!";
             }  
             
         } catch (Exception $ex) {
+            //Imprimos o erro caso haja
             $resultado = $ex -> getMessage(); 
         }
         
+        //Armazenamos o resultado
         $this->resultado =  $resultado;
     }
     
@@ -127,6 +138,16 @@ class Read extends Conexao{
      */ 
     public function getResultado() {
         return $this->resultado;
+    }
+    
+    /**
+     * @Descrição: retorna valor contido no atributo $qtsResultado
+     * @copyright (c) 12/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.2 - 10/03/2018
+     * @parametros Sem parâmetros
+     */ 
+    public function getQtsResultado() {
+        return $this->qtsResultado;
     }
 
 

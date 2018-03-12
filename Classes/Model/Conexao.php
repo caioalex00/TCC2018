@@ -60,13 +60,15 @@ class Conexao {
     protected function conectar(){
         
         try {
-            
+            //Aqui instaciamos a classe PDO que realizara a conexão com o banco de dados
             $this->conexao = new PDO($this->tipo . ':host=' . $this->host . ';dbname=' . $this->dbname, $this->usuario, $this->senha);
             
         } catch (Exception $ex) {
+            //Caso haja algum erro na conexao, o erro será imprimido na tela
             echo 'Erro na conexão: ' . $ex->getMessage();
         }
         
+        //Retorna a conexao
         return $this->conexao;
     }
 

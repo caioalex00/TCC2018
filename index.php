@@ -31,7 +31,10 @@
         echo "<pre>";
         print_r($Users);
         echo "</pre>";
-        */
+        echo "<pre> Foram Encontrados: ";
+        print_r($read->getQtsResultado());
+        echo " Resultados!</pre>";
+        /*
         ?>
         
         <?php

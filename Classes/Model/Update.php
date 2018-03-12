@@ -71,13 +71,18 @@ class Update extends Conexao{
      * @parametros Sem parâmetros
      */
     private function prepararQuery() {
+        //Prparamos a primeira parte da query informando qual tabela sera alterada
         $query = "UPDATE " . $this->tabela . " SET ";
+        //Separamos os dados em um array
         $arrayColunas = explode(",", $this->dadosTabela);
         $colunasRef = "";
+        //Por meio do repetidor inserimos na variavel quais colunas serão alteradas
         for ($i = 0;$i < count($arrayColunas);$i++){
             $arrayColunas[$i] .= " = ?";
         }
+        //Juntamos o array em uma string
         $colunasRef .= implode(",", $arrayColunas);
+        //Montamos e armazenamos a query
         $query .= $colunasRef . " WHERE " . $this->condicaoColuna . " = ?";
         $this->queryFinal =  $query;
     }
@@ -91,19 +96,23 @@ class Update extends Conexao{
      */ 
     private function executar(){
         try {
-        $con = $this -> conectar();
-        $pdo = $con -> prepare($this -> queryFinal);
-        $array = explode(",", $this->dadosValues);
-        $numParam = count($array);
-        
-        for($i = 1, $j = 0;$j < $numParam;$i++,$j++){
-            $pdo -> bindParam($i, $array[$j]);
-        } 
-        
-        $pdo -> bindParam($numParam + 1, $this->condicaoValor);
-        $pdo -> execute();
+            //Realimos a conexão com o banco de dados
+            $con = $this -> conectar();
+            //preparamos a query
+            $pdo = $con -> prepare($this -> queryFinal);
+            $array = explode(",", $this->dadosValues);
+            $numParam = count($array);
+            //Inserido dados necessarios no bindParam por meio de array
+            for($i = 1, $j = 0;$j < $numParam;$i++,$j++){
+                $pdo -> bindParam($i, $array[$j]);
+            } 
+            //Adicionando o valor da condição
+            $pdo -> bindParam($numParam + 1, $this->condicaoValor);
+            //Execultamos o query
+            $pdo -> execute();
         
         } catch (Exception $ex) {
+            //Imprimimos o erro caso haja
             echo $ex -> getMessage(); 
         }
     }

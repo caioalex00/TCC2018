@@ -71,11 +71,15 @@ class Delete extends Conexao{
      */ 
     private function executar(){
         try {
+            //Fazemos a conexão com o banco de dados
             $con = $this -> conectar();
+            //preparamos a query pelo metodo prepare() e logo depois execultamos o bindParam
             $pdo = $con -> prepare($this->queryFinal);
             $pdo -> bindParam(1, $this->condicaoValor);
+            //Execultamos a query
             $pdo -> execute();
         } catch (Exception $ex) {
+            //Imprimos na tela o erro caso haja
             echo $ex -> getMessage(); 
         }
     }

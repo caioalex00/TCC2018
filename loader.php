@@ -20,8 +20,11 @@
 * @param string $classe armazena o nome da classe obtida no spl_autoload_register() para fazer o include dela
 */
 function CarregarClasse($classe){
+    //Variavel que contem nome das pastas onde contem classes
     $Pastas = ['Controller','Model','View'];
     
+    //Por meio do foreach pecorremos as pastas, vereficando se nelas contem a classe passada
+    //no parametro do metodo
     foreach ($Pastas as $Pasta) {
         $Caminho = __DIR__ . "/" . "Classes" . "/" . $Pasta . "/" . $classe . ".php";
         
@@ -31,4 +34,6 @@ function CarregarClasse($classe){
         }
     }
 }
+//Essa função cgamara nossa função de loader quando uma classe for instanciada
+//Passando como parametro o nome da classe
 spl_autoload_register('CarregarClasse');

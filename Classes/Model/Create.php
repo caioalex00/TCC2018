@@ -51,6 +51,8 @@ class Create extends Conexao{
         $this->executar();
     }
     
+    //Metodos Privados
+    
     /**
      * @Descrição: Esse metódo e responsavel por gerar a query que ira armazana os 
      * dados submetidos na instanciação no banco e por fim armazenar a query gerada
@@ -62,13 +64,15 @@ class Create extends Conexao{
     private function prepararQuery() {
         $numDeParametros = "";
         
+        //Utilizamos o repetidor para inserir os "?"  necessarios na query
         for ($i = 0; $i < count($this->dadosValues);$i++){
             $numDeParametros .= "?,";
         }
-         
+        //Retiramos a ultima virgula que sobro do repetidor 
         $Parametros = substr($numDeParametros,0,-1);
+        //Montamos a query com os valores obtidos
         $query = "INSERT INTO " . $this->tabela . "(" . $this->dadosTabela . ") " . "VALUES(" . $Parametros . ")";
-         
+        //Armazenamos o resultado no atributo $queryFinal 
         $this->queryFinal =  $query;
     }
     
@@ -80,18 +84,23 @@ class Create extends Conexao{
      */ 
     private function executar() {
         try {
+            //Execultamos a conexão com o banco
             $con = $this->conectar();
+            //Preparamos a query
             $pdo = $con -> prepare($this->queryFinal);
+            
             $array = $this->dadosValues;
             $numParam = count($array) + 1;
-            
+            //Com um repetido e o array dos dados, execultamos os bindParam necessarios
             for($i = 1,$j = 0;$i < $numParam;$i++,$j++){
                 $pdo -> bindParam($i, $array[$j]);
             }
             
-           $pdo -> execute();
+            //Execultamos a query
+            $pdo -> execute();
             
         } catch (Exception $ex) {
+            //Imprimos o erro na tela caso ocorra algum problema
             echo "Erro ". $ex->getMessage();
         }
     }
