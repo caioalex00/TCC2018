@@ -1,0 +1,163 @@
+.Logo-Nav{
+    height: 50px;
+}
+
+.Persona-Link li a{
+    font-size: 18px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.Persona-Link-Cor1{
+    color: #0261b2 !important;
+}
+
+.Persona-Link-Cor2{
+    color: #ff3229 !important;
+}
+
+.Borda-Bottom-Cor2{
+    border-bottom: 4px solid #ff3229;
+}
+
+.Objetivo{
+    text-align: center;
+    background: #ffffff;
+    padding-bottom: 0px;
+}
+
+.Objetivo-Imagem{
+    margin-top: 23px;
+}
+
+.Objetivo-Titulo{
+    font-family: CutiveMono-Regular;
+    color: #ff3229;
+}
+
+.Objetivo-Texto{
+    text-align: justify;
+    font-size: 24px;
+}
+
+#Sessao-Funcionalidades{
+    background: #ffffff;
+    color: #0261b2;
+    font-family: CutiveMono-Regular;
+    padding-top: 0px;
+}
+
+.Alinhar-Centro{
+    text-align: center;
+}
+
+.texto-card-persona{
+    font-family: Quicksand-Regular;
+    color: #333333;
+    text-align: justify;
+    font-size: 19px;
+}
+
+.persona-card-inicio{
+    border: none;
+}
+
+.Borda-Curva{
+    height: 70px;
+    background-image: url(../imgs/Borda.png);
+    background-position: center;
+    background-size: cover;
+}
+
+#Apresentacao-AVA{
+    background-color: #ff3229;
+    padding-bottom: 10px;
+}
+
+.Apresentacao-AVA-Titulo{
+    text-align: center;
+    color: #ffffff;
+    font-family: CutiveMono-Regular;
+    height: 90px;
+}
+
+.Apresentacao-AVA-Fotos{
+    margin: 0 auto;
+}
+
+.Apresentacao-AVA-Fotos figure img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.Apresentacao-AVA-SubTitulo{
+    font-family: Quicksand-Regular;
+    padding: 10px;
+}
+
+.Apresentacao-AVA-Texto h3{
+    color: #ffffff;
+}
+
+.Apresentacao-AVA-Texto p{
+    color: #000;
+    text-align: justify;
+}
+
+.Titulo-Link-Cadastro{
+    color: #ffffff;
+    text-align: center;
+}
+
+.btn-link-cadastro{
+    text-align: center;
+
+}
+
+.btn-link-cadastro a{
+    background: #ffffff;
+    font-size: 40px;
+    font-family: CutiveMono-Regular;
+    padding: 10px;
+    border-radius: 5px;
+    color:#0261b2;
+}
+
+.btn-link-cadastro a:hover{
+    text-decoration: none;
+    background: #E5E5E5;
+    transition: 0.4s;
+}
+
+footer{
+    background: #282828;
+    padding: 20px 0px;
+    border-top: 4px solid #0261b2;
+    text-align: center;
+}
+
+footer p{
+    margin-top: 13px;
+    color: #ffffff;
+    font-family: Quicksand-Regular;
+}
+
+.Logo-Footer{
+    font-family: CutiveMono-Regular;
+    color: #0261b2;
+    font-size: 20px;
+}
+
+.Logo-Footer-Cor2{
+    color: #ff3229;
+}
+
+@font-face{
+    font-family: CutiveMono-Regular;
+    src: url(../Fontes/CutiveMono-Regular.ttf);
+}
+
+@font-face{
+    font-family: Quicksand-Regular;
+    src: url(../Fontes/Quicksand-Regular.ttf);
+}

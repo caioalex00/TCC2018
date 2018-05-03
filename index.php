@@ -5,8 +5,12 @@
         <title></title>
     </head>
     <body>
+        <script>
+            window.location.href = "Classes/View/Pagina_Inicial.php";
+        </script>
        <?php
        require_once './loader.php';
+       
         //Exemplo da função CREATE do CRUD
         /*
         $tabela = "usuarios";
