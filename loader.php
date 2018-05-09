@@ -11,6 +11,11 @@
  * @métodos CarregarClasse()
  */
 
+//Iniciamos a sessão para que as funções de login e cadastro funcione
+//Foi feita uma condição para evitar o erro de iniciar uma sessão 2 vezes
+if(!isset($_SESSION)){
+    session_start();
+}
 
 /**
 * @Descrição: Armazena os valores necessarios na instanciação e executa o 

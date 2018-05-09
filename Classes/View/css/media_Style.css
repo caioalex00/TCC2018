@@ -1,0 +1,69 @@
+@media (max-width: 425px) {
+    #CarouselPrincipal{
+        display: none;
+    }
+    
+    .Objetivo-Titulo{
+        font-size: 80px;
+    }
+    
+    #Sessao-Funcionalidades h3{
+        font-size: 55px;
+    }
+    
+    .card-body .Alinhar-Centro{
+        font-size: 40px;
+    }
+    
+    .btn-link-cadastro{
+        width: 80%;
+        font-size: 30px;
+    }
+    
+    footer p{
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 375px) {
+    .Logo-Nav{
+        height: 43px;
+    }
+    
+    #CarouselPrincipal{
+        display: none;
+    }
+    
+    .Objetivo-Titulo{
+        font-size: 60px;
+    }
+    
+    .Objetivo-Imagem img{
+        width: 80%;
+    }
+    
+    #Sessao-Funcionalidades h3{
+        font-size: 40px;
+    }
+    
+    .card-body .Alinhar-Centro{
+        font-size: 30px;
+    }
+    
+    .btn-link-cadastro{
+        width: 80%;
+        font-size: 30px;
+    }
+    
+    footer p{
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 900px){
+    #CarouselPrincipal{
+        display: none;
+    }
+}

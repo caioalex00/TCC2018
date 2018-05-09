@@ -1,3 +1,13 @@
+@font-face{
+    font-family: CutiveMono-Regular;
+    src: url(../Fontes/CutiveMono-Regular.ttf);
+}
+
+@font-face{
+    font-family: Quicksand-Regular;
+    src: url(../Fontes/Quicksand-Regular.ttf);
+}
+
 .Logo-Nav{
     height: 50px;
 }
@@ -15,6 +25,11 @@
 .Persona-Link-Cor2{
     color: #ff3229 !important;
 }
+
+#MenuPaginaPrincipal ul li {
+    text-align: center;
+}
+
 
 .Borda-Bottom-Cor2{
     border-bottom: 4px solid #ff3229;
@@ -51,6 +66,10 @@
     text-align: center;
 }
 
+.card{
+    padding: 0;
+}
+
 .texto-card-persona{
     font-family: Quicksand-Regular;
     color: #333333;
@@ -62,27 +81,36 @@
     border: none;
 }
 
-.Borda-Curva{
-    height: 70px;
+.Borda-Listrada{
+    height: 40px;
     background-image: url(../imgs/Borda.png);
     background-position: center;
     background-size: cover;
 }
 
+.Borda-Cor-1{
+    border: 4px solid #0261b2;
+}
+
+.Borda-Cor-2{
+    border: 4px solid #ff3229;
+}
+
 #Apresentacao-AVA{
-    background-color: #ff3229;
+    background-color: #FFF;
     padding-bottom: 10px;
 }
 
 .Apresentacao-AVA-Titulo{
     text-align: center;
-    color: #ffffff;
+    color: #0261b2;
     font-family: CutiveMono-Regular;
     height: 90px;
 }
 
 .Apresentacao-AVA-Fotos{
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .Apresentacao-AVA-Fotos figure img{
@@ -96,7 +124,10 @@
 }
 
 .Apresentacao-AVA-Texto h3{
-    color: #ffffff;
+    color: #0261b2;
+    font-family: CutiveMono-Regular;
+    text-align: center;
+    font-size: 35px;
 }
 
 .Apresentacao-AVA-Texto p{
@@ -105,28 +136,35 @@
 }
 
 .Titulo-Link-Cadastro{
-    color: #ffffff;
+    color: #0261b2;
     text-align: center;
+    font-family: CutiveMono-Regular;
 }
 
 .btn-link-cadastro{
-    text-align: center;
-
-}
-
-.btn-link-cadastro a{
-    background: #ffffff;
+    background: #ff3229;
     font-size: 40px;
-    font-family: CutiveMono-Regular;
-    padding: 10px;
-    border-radius: 5px;
-    color:#0261b2;
+    color: #FFF;
+    padding: 5px 50px;
 }
 
-.btn-link-cadastro a:hover{
-    text-decoration: none;
-    background: #E5E5E5;
-    transition: 0.4s;
+.btn-link-cadastro:active, .btn-link-cadastro:focus{
+    background: #ff3229 !important;
+}
+
+.btn-link-cadastro-corpo{
+    text-align: center;
+    font-family: CutiveMono-Regular;
+}
+
+.btn-adpt-link{
+    padding: 0px;
+    margin: 0px;
+    background: none;
+    color: #ff3229;
+    font-size: 18px;
+    margin-top: 2px;
+    text-align: center;
 }
 
 footer{
@@ -152,12 +190,45 @@ footer p{
     color: #ff3229;
 }
 
-@font-face{
-    font-family: CutiveMono-Regular;
-    src: url(../Fontes/CutiveMono-Regular.ttf);
+.btn-adpt-link{
+    padding: 0px;
+    margin: 0px;
+    background: none;
+    color: #ff3229;
+    font-size: 18px;
+    margin-top: 9px;
+    text-align: center;
+    outline: 0;
+    box-shadow: none;
+    margin-right: 5px;
 }
 
-@font-face{
+.btn-adpt-link:focus,.btn-adpt-link:active{
+    outline: 0;
+    box-shadow: none;
+}
+
+#ModalLabelCadastro{
+    color: #ff3229;
+}
+
+label{
+    color: #0261b2;
+}
+
+.input-cadastro:focus{
+}
+
+#ModalDeCadastro, #ModalDeLogin{
     font-family: Quicksand-Regular;
-    src: url(../Fontes/Quicksand-Regular.ttf);
+}
+
+.btn-cadastro, .btn-cadastro:focus, .btn-link-cadastro:active{
+    background: #0261b2;
+    color: #ffffff;
+}
+
+.btn-sair, .btn-sair:focus, .btn-sair:active{
+    background: #ff3229;
+    color: white;
 }
