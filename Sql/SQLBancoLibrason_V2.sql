@@ -1,0 +1,65 @@
+CREATE DATABASE librason;
+USE librason;
+
+CREATE TABLE Professor(
+	ID INT AUTO_INCREMENT,
+    Nome VARCHAR(100),
+    EMAIL VARCHAR(100),
+    PRIMARY KEY(ID)
+);
+
+CREATE TABLE Turma(
+	COD VARCHAR(10),
+	ID INT,
+    Professor_ID_FK INT,
+    PRIMARY KEY(COD),
+    FOREIGN KEY (Professor_ID_FK)
+    REFERENCES Professor(ID)
+);
+
+CREATE TABLE Aluno(
+	ID INT AUTO_INCREMENT,
+    Nome VARCHAR(100),
+    EMAIL VARCHAR(100),
+    Turma_COD_FK VARCHAR(10),
+    PRIMARY KEY(ID),
+    FOREIGN KEY (Turma_COD_FK)
+    REFERENCES Turma(COD)
+);
+
+CREATE TABLE Modulo(
+	ID INT AUTO_INCREMENT,
+    Nome VARCHAR(50),
+    Descricao VARCHAR(200),
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE Exercicio(
+	ID INT AUTO_INCREMENT,
+    NOME VARCHAR(50),
+    Modulo_FK int, 
+    PRIMARY KEY (ID),
+    FOREIGN KEY (Modulo_FK)
+    REFERENCES Modulo(ID)
+);
+
+CREATE TABLE Questoes(
+	ID INT AUTO_INCREMENT,
+    NOME VARCHAR(50),
+    Exercicio_FK INT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (Exercicio_FK)
+    REFERENCES Exercicio(ID)
+);
+    
+CREATE TABLE Respostas(
+	ID INT AUTO_INCREMENT,
+    NOME VARCHAR(50),
+    Questoes_FK INT,
+    Aluno_FK INT,
+    PRIMARY KEY(ID),
+    FOREIGN KEY (Questoes_FK)
+    REFERENCES Questoes(ID),
+    FOREIGN KEY (Aluno_FK)
+    REFERENCES Aluno(ID)
+);
