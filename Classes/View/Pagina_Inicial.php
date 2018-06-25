@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-md navbar-light Borda-Bottom-Cor2">
             <section class="container">
 
-                <a href="" class="navbar-brand h1 mb-0">
+                <a href="Pagina_Inicial.php" class="navbar-brand h1 mb-0">
                     <img class="Logo-Nav" src="imgs/logotipo.png" alt="Lbrason Logotipo"/>
                 </a>
 
@@ -39,11 +39,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDeCadastro">Cadastrar</button>
+                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDoAluno">Aluno</button>
                         </li>
 
                         <li class="nav-item">
-                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDeLogin">Login</button>
+                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDoProfessor">Professor</button>
                         </li>
 
                     </ul>
@@ -92,7 +92,7 @@
                     <img src="imgs/Libras_2.png" alt=""/>
                 </figure>
                 <article class="col-md-6 lead Objetivo-Texto">
-                    O Librason tem como objetivo apresentar ao usuário o surdo e sua lingua. Para realizar isso todo conteudo do site e direcionado a apresentar a cultura surda e o mesmo vem integrado a um AVA (Ambiente virtual de aprendizagem) para realizar a introdução a 2° língua oficial do Brasil, a LIBRAS (Língua brasileira de sinais) e incentivar que os usuários busquem se aprofundar na mesma. Como objetivo final, esperamos oportunizar a interação entre os ouvinte e a comunidade surda.
+                    O Librason tem como objetivo apresentar ao usuário o surdo e sua língua. Para realizar isso todo conteúdo do site e direcionado a apresentar a cultura surda e o mesmo vem integrado a um AVA (Ambiente virtual de aprendizagem) para realizar a introdução a 2° língua oficial do Brasi: a LIBRAS (Língua brasileira de sinais) e incentivar que os usuários busquem se aprofundar na mesma. Como objetivo final, esperamos oportunizar a interação entre os ouvintes e a comunidade surda.
                 </article>
             </section>
         </section>
@@ -106,7 +106,7 @@
                     <img class="card-img-top" src="imgs/Cards/card1.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text h1 Alinhar-Centro">Conhecimento</p>
-                        <p class="card-text texto-card-persona lead">A busca pelo conhecimento é algo necessário. No Librason você encontra diversas informações sobre o surdos. Aqui as informações possuem fontes seguras como artigos cientifícos e livros, garantindo uma confiabilidade do que é lido. </p>
+                        <p class="card-text texto-card-persona lead">A busca pelo conhecimento é algo necessário. No Librason você encontra diversas informações sobre os surdos. Aqui as informações possuem fontes seguras como artigos científicos e livros, garantindo uma confiabilidade do que é lido. </p>
                     </div>
                 </div>
                 
@@ -114,7 +114,7 @@
                     <img class="card-img-top" src="imgs/Cards/card2.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text h1 Alinhar-Centro">Aprendizado</p>
-                        <p class="card-text texto-card-persona lead">Um ambiente virtual de aprendizagem (AVA) vem integrado ao nosso website, nele é possivel realizar um curso de introdução a Língua Brasileira de Sinais, a libras é a segunda língua oficial do Brasil, sendo usada para comunicação pela comunidade surda. </p>
+                        <p class="card-text texto-card-persona lead">Um ambiente virtual de aprendizagem (AVA) vem integrado ao nosso website, nele é possível realizar um curso de introdução a Língua Brasileira de Sinais, a libras é a segunda língua oficial do Brasil, sendo usada para comunicação pela comunidade surda. </p>
                     </div>
                 </div>
                 
@@ -122,7 +122,7 @@
                     <img class="card-img-top" src="imgs/Cards/card3.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text h1 Alinhar-Centro">Inclusão</p>
-                        <p class="card-text texto-card-persona lead">Com nosso conjunto de informações e nosso AVA, garantimos que cada vez mais pessoas conheçam melhor os surdos e garantimos que nossos usuários busquem e aprendam sobre os surdos, principalmmente sobre como ter uma comunição melhor com eles.</p>
+                        <p class="card-text texto-card-persona lead">Com nosso conjunto de informações e nosso AVA, garantimos que cada vez mais pessoas conheçam melhor os surdos e garantimos que nossos usuários busquem e aprendam sobre os surdos, principalmente sobre como ter uma comunicação melhor com eles.</p>
                     </div>
                 </div>
                 
@@ -152,108 +152,186 @@
             
             <article class="Apresentacao-AVA-Texto container">
                 <h3>Porque utilizar um AVA?</h3>
-                <p class="lead">O uso das tecnologias como facilitadores do ensino trouxe resultados positivos, com o advento da internet nas útimas décadas a procura por um método de ensino capaz de atingir um público maior com mais facilidade tem crescido, explicitando também a necessidade de um instrumento de ensino simples pórem completo. Os ambientes virtuais de Ensino e aprendizagem se mostram um caminho muito eficiente de ensino ,pois, dá  ao aluno autonomia no ensino e usa elementos multiidáticos no ensino (Schimiguel et al., 2014).</p>
+                <p class="lead">O uso das tecnologias como facilitadores do ensino trouxe resultados positivos, com o advento da internet nas últimas décadas a procura por um método de ensino capaz de atingir um público maior com mais facilidade tem crescido, explicitando também a necessidade de um instrumento de ensino simples porem completo. Os ambientes virtuais de Ensino e aprendizagem se mostram um caminho muito eficiente de ensino, pois, dá ao aluno autonomia no ensino e usa elementos multididáticos no ensino (Schimiguel et al., 2014).</p>
             </article>
             <article class="Apresentacao-AVA-Texto container">
                 <h3>O que será ensinado no AVA?</h3>
                 <p class="lead">O AVA em função de melhorar a inclusão dos surdos, tem como principal foco o ensino da LIBRAS. A língua brasileira de sinais (Libras) é a língua natural das comunidades surdas brasileiras e esta  utiliza o canal visuo-espacial, fazendo uso de sinais, expressões faciais e corporais  para se expressar e comunicar, diferenciando-se, dessa forma, das línguas oral-auditivas como é o caso da língua portuguesa em sua modalidade oral onde se  faz uso da voz. A língua de sinais possui status de língua pois, é formada pelos aspectos: fonológico, morfológico, sintático e semântico, não sendo apenas meros sinais ou o português sinalizado como é comumente dito (QUADROS, 2007).</p>
             </article>
             <h2 class="Titulo-Link-Cadastro">Cadastre-se e obtenha acesso ao ambiente!</h2>
-            <p class="btn-link-cadastro-corpo">
-                <button type="button" class="btn btn-link-cadastro" data-toggle="modal" data-target="#ModalDeCadastro">Cadastrar</button>
-            </p>
         </section>
         <footer>
             <p><span class="Logo-Footer">Libras<span class="Logo-Footer-Cor2">on</span></span> foi criado e desenvolvido por Caio Alexandre Ramos, Micaella Fernandes e Jacileia Nascimento Soares com orientação de Glaucielle Celestina de Sá e Iury Gomes</p>
         </footer>
         
         <!-- Modals -->
-            <!-- Cadastro -->
-        <div class="modal fade" id="ModalDeCadastro" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <!-- Cadastro e Login do Aluno -->
+        <div class="modal fade" id="ModalDoAluno" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabelCadastro">Cadastro no AVA</h5>
+                        <h5 class="modal-title" id="ModalLabelAluno">Login e Cadastro no AVA - Aluno</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="../Controller/CadastroDoUsuario.php" >
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="Nome-Formulario">Nome Completo</label>
-                                <input name="Nome-Formulario" type="text" class="form-control input-cadastro" id="Nome-Formulario" placeholder="Entre com seu nome completo">
+                    <div class="modal-body Modal-Padding">
+                        <h1 class="h1 Fonte-Modal-Principal">Login</h1>
+                        <form method="POST" class="col-md Modal-Aluno Modal-Aluno-Login" action="../Controller/LogarUsuario.php">
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label for="Email-Formulario-A-L">E-mail</label>
+                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-A-L" placeholder="Entre com seu e-mail">
+                                </div>
+                                
+                                <div class="form-group col-md-5">
+                                    <label for="Senha-formulario-A-L">Senha</label>
+                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-A-L" placeholder="Entre com sua senha">
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <label for="Senha-formulario"></label>
+                                    <button style="margin-top: 8px;" type="submit" name="Logar" class="btn btn-cadastro">Logar</button>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="Email-Formulario">E-mail</label>
-                                <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario" placeholder="Entre com seu e-mail">
+                        </form>
+                        
+                        <div class="EspacoEntre"></div>
+                        
+                        <h1 class="h1 Fonte-Modal-Principal">Cadastro</h1>
+                            <?php include_once '../Controller/MSGErroCadastro.php'; ?>
+                        <form method="POST" action="../Controller/CadastrarUsuario.php" class="Modal-Aluno" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="Nome-Formulario-A-C">Nome Completo</label>
+                                    <input name="Nome-Formulario" type="text" class="form-control input-cadastro" id="Nome-Formulario-A-C" placeholder="Entre com seu nome completo">
+                                </div>
+                                
+                                <div class="form-group col-md-6">
+                                    <label for="Email-Formulario-A-C">E-mail</label>
+                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-A-C" placeholder="Entre com seu e-mail">
+                                </div>
                             </div>
-                            <?php if(isset($_REQUEST['ERROR-Email-1'])){?>
-                            <div class="alert alert-danger" role="alert">
-                                Email já existente!
-                            </div>
-                            <?php }
-                                if(isset($_REQUEST['ERROR-Email-2'])){
-                            ?>
-                            <div class="alert alert-danger" role="alert">
-                                Email de forma incorreta!
-                            </div>
-                            <?php } ?>
                             
-                            <div class="form-group">
-                                <label for="Senha-formulario">Senha</label>
-                                <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario" placeholder="Entre com sua senha">
-                                <small id="emailHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="Senha-formulario-A-C">Senha</label>
+                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-A-C" placeholder="Entre com sua senha">
+                                    <small id="SenhaHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ComSenha-Formulario-A-C">Comfirmar Senha</label>
+                                    <input name="ComSenha-Formulario" type="password" class="form-control" id="ComSenha-formulario-A-C" placeholder="Entre com sua senha novamente">
+                                </div>
                             </div>
-                            <?php if(isset($_REQUEST['ERROR-Senha-1'])){?>
-                            <div class="alert alert-danger" role="alert">
-                                Senha com no mínimo 8 caracteres;
+                            
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="Formulario-Foto-A-C">Foto de perfil</label><br>
+                                    <label class="custom-file">
+                                        <input name="Foto-Formulario" type="file" id="Formulario-Foto-P-C" class="custom-file-input" accept="image/png, image/jpeg" required>
+                                        <label class="custom-file-label">Escolha um arquivo...</label>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group col-md-6">
+                                    <label for="Turma-formulario-A-C">Código da Turma</label>
+                                    <input name="Turma-Formulario" type="text" class="form-control" id="Turma-formulario-A-C" placeholder="Entre com o código">
+                                </div>
                             </div>
-                            <?php } ?>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
-                            <button type="submit" name="Cadastrar" class="btn btn-cadastro">Cadastrar</button>
-                        </div>
-                    </form>
+                            
+                            <button type="submit" name="Cadastrar-A" class="btn btn-cadastro">Cadastrar</button>
+                        </form>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
+                    </div>
                 </div>
             </div>
         </div>
             
-            <!-- Login -->
-        <div class="modal fade" id="ModalDeLogin" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <!-- Login e Cadastro do Professor-->
+        <div class="modal fade" id="ModalDoProfessor" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabelCadastro">Login no AVA</h5>
+                        <h5 class="modal-title" id="ModalLabelProfessor">Login e Cadastro no AVA - Professor</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="../Controller/LoginDoUsuario.php" >
-                        <div class="modal-body">
+                    <div class="modal-body">
+                        <h1 class="h1 Fonte-Modal-Principal">Login</h1>
+                        <form method="POST" class="col-md Modal-Aluno Modal-Aluno-Login" action="../Controller/LogarUsuario.php">
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label for="Email-Formulario-P-L">E-mail</label>
+                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-P-L" placeholder="Entre com seu e-mail">
+                                </div>
+                                
+                                <div class="form-group col-md-5">
+                                    <label for="Senha-formulario-P-L">Senha</label>
+                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-P-L" placeholder="Entre com sua senha">
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <label for="Senha-formulario"></label>
+                                    <button style="margin-top: 8px;" type="submit" name="Logar" class="btn btn-cadastro">Logar</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <div class="EspacoEntre"></div>
+                        
+                        <h1 class="h1 Fonte-Modal-Principal">Cadastro</h1>
+                            <?php include '../Controller/MSGErroCadastro.php'; ?>
+                        <form method="POST" action="../Controller/CadastrarUsuario.php" class="Modal-Aluno" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                <label for="Nome-Formulario-P-C">Nome Completo</label>
+                                <input name="Nome-Formulario" type="text" class="form-control input-cadastro" id="Nome-Formulario-P-C" placeholder="Entre com seu nome completo">
+                                </div>
+                                
+                                <div class="form-group col-md-6">
+                                    <label for="Email-Formulario-P-C">E-mail</label>
+                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-P-C" placeholder="Entre com seu e-mail">
+                                </div>
+                            </div>
                             
-                            <div class="form-group">
-                                <label for="Email-Formulario">E-mail</label>
-                                <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario" placeholder="Entre com seu e-mail">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="Senha-formulario-P-C">Senha</label>
+                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-P-C" placeholder="Entre com sua senha">
+                                    <small id="SenhaHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ComSenha-Formulario-P-C">Comfirmar Senha</label>
+                                    <input name="ComSenha-Formulario" type="password" class="form-control" id="ComSenha-formulario-P-C" placeholder="Entre com sua senha novamente">
+                                </div>
                             </div>
-                          
-                            <div class="form-group">
-                                <label for="Senha-formulario">Senha</label>
-                                <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario" placeholder="Entre com sua senha">
-                                <small id="emailHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
+                            
+                            <div class="row">
+                                <div class="form-group col-md">
+                                    <label for="Formulario-Foto-P-C">Foto de perfil</label><br>
+                                    <label class="custom-file">
+                                        <input name="Foto-Formulario" type="file" id="Formulario-Foto-P-C" class="custom-file-input" accept="image/png, image/jpeg" required>
+                                        <label class="custom-file-label">Escolha uma foto...</label>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
-                            <button type="submit" name="Logar" class="btn btn-cadastro">Logar</button>
-                        </div>
-                    </form>
+                            
+                            <button type="submit" name="Cadastrar-P" class="btn btn-cadastro">Cadastrar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
+                    </div>
                 </div>
             </div>
         </div>
             
-            <!-- Cadastro Realizado -->
+        <!-- Cadastro Realizado -->
         <div class="modal fade" id="ModalDeSucessoCd" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -273,22 +351,60 @@
             </div>
         </div>
         
+        <!-- Erro no Login -->
+        <div class="modal fade" id="ModalDeErroLogin" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabelCadastroSucesso">Erro no Login!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <div class="modal-body">
+                            Verifique se seu email e senha foram digitados corretamente.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="bootstrap-4.1.0-dist/jquery-3.3.1.min.js"></script>
         <script src="bootstrap-4.1.0-dist/popper.js"></script>
         <script src="bootstrap-4.1.0-dist/js/bootstrap.js"></script>
+        
         <!-- Modals Ativos -->
-        <!-- Erros de Cadastro -->
-        <?php if(isset($_REQUEST['ERROR-Email-1']) || isset($_REQUEST['ERROR-Email-2']) || isset($_REQUEST['ERROR-Senha-1'])){?>
+        <!-- Erros de Cadastro Aluno-->
+        <?php if( isset($_REQUEST['MSGERR'])){?>
         <script>
-                $('#ModalDeCadastro').modal('show');
+                $('#ModalDoAluno').modal('show');
         </script>
         <?php } ?>
+        
+        <!-- Erros de Cadastro Aluno-->
+        <?php if( isset($_REQUEST['MSGERRP'])){?>
+        <script>
+                $('#ModalDoProfessor').modal('show');
+        </script>
+        <?php } ?>
+        
+        <!-- Erros de Login-->
+        <?php if( isset($_REQUEST['Login'])){?>
+        <script>
+                $('#ModalDeErroLogin').modal('show');
+        </script>
+        <?php } ?>
+        
+        <!-- Sucesso de Cadastro -->
         <?php if(isset($_REQUEST['SucessoNoCadastro'])){?>
         <script>
                 $('#ModalDeSucessoCd').modal('show');
         </script>
         <?php } ?>
+        
     </body>
 </html>

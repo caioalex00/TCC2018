@@ -118,7 +118,7 @@ class Read extends Conexao{
             if($this->qtsResultado >= 1){
                 $resultado = $pdo->fetchAll(PDO::FETCH_ASSOC);
             }else{
-                $resultado = "Não foram encontrado resultados!";
+                $resultado = NULL;
             }  
             
         } catch (Exception $ex) {
@@ -128,6 +128,37 @@ class Read extends Conexao{
         
         //Armazenamos o resultado
         $this->resultado =  $resultado;
+    }
+    
+    /**
+     * @Descrição: Responsavel por executar Funções contidas no SGBD
+     * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.4 - 20/02/2018
+     * @parametros Sem parâmetros
+     */ 
+    public function chamarFuncao() {
+        try {
+            //Preparando Select de Função que foi inserido na variavel tabela 
+            $select = $this->tabela;
+            //Realizamos conexao com o banco
+            $con = $this->conectar();
+            //Preparamos a query
+            $pdo = $con -> prepare($select);
+            //Executamos a query
+            $pdo -> execute();
+            
+            //Armazena resultado e retornando
+            $resultado = $pdo->fetchAll(PDO::FETCH_NUM);
+            $this->resultado = $resultado;
+            
+            return $resultado[0][0];
+        } catch (Exception $ex) {
+            //Imprimimos o erro caso haja
+            $resultado = $ex -> getMessage(); 
+        }
+        
+        //Armazenamos o resultado e retornando
+        return $this->resultado =  $resultado;
     }
     
     /**

@@ -152,11 +152,6 @@
     background: #ff3229 !important;
 }
 
-.btn-link-cadastro-corpo{
-    text-align: center;
-    font-family: CutiveMono-Regular;
-}
-
 .btn-adpt-link{
     padding: 0px;
     margin: 0px;
@@ -208,10 +203,6 @@ footer p{
     box-shadow: none;
 }
 
-#ModalLabelCadastro{
-    color: #ff3229;
-}
-
 label{
     color: #0261b2;
 }
@@ -231,4 +222,40 @@ label{
 .btn-sair, .btn-sair:focus, .btn-sair:active{
     background: #ff3229;
     color: white;
+}
+
+.Modal-Aluno{
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #0261b2;
+    margin-bottom: 10px;
+}
+
+.Modal-Aluno button{
+    width: 100%;
+}
+
+.Modal-Aluno-Login{
+    min-height: 110px;
+}
+
+.Modal-Padding{
+    padding: 20px;
+}
+
+.Fonte-Modal-Principal{
+    color: #0261b2;
+    font-size: 30px;
+    font-family: Quicksand-Regular;
+}
+
+.EspacoEntre{
+    width: 5px;
+}
+
+#ModalLabelAluno, #ModalLabelProfessor{
+    font-family: CutiveMono-Regular;
+    font-size: 25px;
+    color: #ff3229;
 }
