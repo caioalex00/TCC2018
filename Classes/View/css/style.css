@@ -8,6 +8,11 @@
     src: url(../Fontes/Quicksand-Regular.ttf);
 }
 
+@font-face{
+    font-family: Montserrat-Regular;
+    src: url(../Fontes/Montserrat-Regular.ttf);
+}
+
 .Logo-Nav{
     height: 50px;
 }
@@ -258,4 +263,76 @@ label{
     font-family: CutiveMono-Regular;
     font-size: 25px;
     color: #ff3229;
+}
+
+.btn-user-log button, .btn-user-log button:hover, .btn-user-log button:active, .btn-user-log button:focus{
+    background: #FFF !important;
+    border: none !important;
+    color: #ff3229 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    font-size: 18px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.ft-User-Drop{
+    background: url(../imgs/pp.jpg);
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    border-radius: 100%;
+}
+
+.ft-User-Drop img{
+    width: 100%;
+    background: none;
+}
+
+.menu-user-adpt{
+    margin-left: 10px;
+}
+
+.UI-User-Interna{
+    min-width: 200px;
+    margin: 0 auto;
+
+}
+.Turma-Log-Drop{
+    color: #ff3229;
+    margin-right: 4px;
+}
+
+.Principal-Conteudo{
+    min-height: 600px;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+.titulo-sessoes{
+    color: #0261b2;
+    font-family: Montserrat-Regular;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.link-card-sessao{
+    background: none;
+}
+
+.link-card-sessao-titulo{
+    color: #0261b2;
+    text-align: center;
+    font-family: Montserrat-Regular;
+    font-weight: bold;
+}
+
+.cards-link-grupo{
+    margin-top: 40px;
+}
+
+.adpt-link-card-img{
+    width: 250px;
+    margin: 0 auto;
 }

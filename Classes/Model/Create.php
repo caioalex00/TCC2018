@@ -24,6 +24,12 @@ class Create extends Conexao{
     /** @var string $queryFinal armazena a query que sera gerada pelo metodo prepararQuery() para execução posterior */ 
     private $queryFinal;
     
+    /** @var int $idGerado armazena o ID do create*/ 
+    public $idGerado;
+    
+    /** @var int $idGerado armazena o erro caso haja do create*/ 
+    public $erro;
+    
     /**
      * @Descrição: Armazena os valores necessarios na instanciação e executa o 
      * metodo construct da Classe herdada Conexao
@@ -98,10 +104,11 @@ class Create extends Conexao{
             
             //Execultamos a query
             $pdo -> execute();
+            $this->idGerado = $con -> lastInsertId();
             
         } catch (Exception $ex) {
             //Imprimos o erro na tela caso ocorra algum problema
-            echo "Erro ". $ex->getMessage();
+            $this->erro =  $ex->getMessage();
         }
     }
     

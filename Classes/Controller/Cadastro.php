@@ -28,8 +28,12 @@ class Cadastro {
     private $read1;
     /** @var object $create variavel responsavel por armazenar o objeto da função Create do CRUD */
     private $create;
+    /** @var object $create1 variavel responsavel por armazenar o objeto da função Create do CRUD */
+    private $create1;
     /** @var string $senhaSegura variavel responsavel por armazenar a senha do usuário em hash para o cadastro */
     private $senhaSegura;
+    /** @var int $idGerado variavel responsavel por armazenaro o ID do usuário*/
+    private $idGerado;
     
     /**
      * @Descrição: Responsavel por utilizar todas as funções de cadastro do Aluno,
@@ -57,7 +61,8 @@ class Cadastro {
         }else{
             $this->encriptarSenha();
             $this->realizarCadastroAluno();
-            echo "<script>window.location.href = '../View/Pagina_Inicial.php?SucessoNoCadastro'</script>";
+            $this->subirFotoAluno();
+            //echo "<script>window.location.href = '../View/Pagina_Inicial.php?SucessoNoCadastro'</script>";
         }
     }
     
@@ -196,6 +201,7 @@ class Cadastro {
         $dadosValues = "null," . $this->nome . "," .$this->email . "," . $this->turma . "," . $this->senhaSegura;
         $this->create = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create->executarQuery();
+        $this->idGerado = $this->create->idGerado;
     }
     
     /**
@@ -210,5 +216,20 @@ class Cadastro {
         $dadosValues = "null," . $this->nome . "," .$this->email . "," . $this->senhaSegura;
         $this->create = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create->executarQuery();
+    }
+    
+    private function subirFotoAluno(){
+        $imagem = $this->ftPerfil['tmp_name'];
+        $tamanho = $this->ftPerfil['size'];
+        $fp = fopen($imagem, "rb");
+        $conteudo = fread($fp, $tamanho);
+        $conteudo = addslashes($conteudo);
+        fclose($fp);
+        
+        $tabela = "Perfil_Aluno";
+        $dadosTabela = "ID,Imagem,Aluno_FK";
+        $dadosValues = "null," . $conteudo . "," . $this->idGerado;
+        $this->create1 = new Create($tabela, $dadosTabela, $dadosValues);
+        $this->create1->executarQuery();
     }
 }

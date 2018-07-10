@@ -1,66 +1,64 @@
-USE db_librason;
-
+USE librason;
 -- Tabelas do BD
 
 CREATE TABLE Professor(
-	ID INT AUTO_INCREMENT,
-    Nome VARCHAR(100),
-    Email VARCHAR(100),
-    Senha VARCHAR(50),
+	ID INT AUTO_INCREMENT NOT NULL,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Senha VARCHAR(50) NOT NULL,
     PRIMARY KEY(ID)
 );
 
 CREATE TABLE Turma(
-	COD VARCHAR(10),
-	ID INT AUTO_INCREMENT,
-    Professor_ID_FK INT,
+	COD VARCHAR(10) NOT NULL,
+    Professor_ID_FK INT NOT NULL,
     PRIMARY KEY(COD),
     FOREIGN KEY (Professor_ID_FK)
-    REFERENCES Professor(ID),
-    KEY(ID)
+    REFERENCES Professor(ID)
 );
 
 CREATE TABLE Aluno(
-	ID INT AUTO_INCREMENT,
-    Nome VARCHAR(100),
-    Email VARCHAR(100),
-    Turma_COD_FK VARCHAR(10),
-    Senha VARCHAR(50),
+	ID INT AUTO_INCREMENT NOT NULL,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Turma_COD_FK VARCHAR(10) NOT NULL,
+    Senha VARCHAR(50) NOT NULL,
     PRIMARY KEY(ID),
     FOREIGN KEY (Turma_COD_FK)
     REFERENCES Turma(COD)
 );
 
 CREATE TABLE Modulo(
-	ID INT AUTO_INCREMENT,
-    Nome VARCHAR(50),
-    Descricao VARCHAR(200),
+	ID INT AUTO_INCREMENT NOT NULL,
+    Nome VARCHAR(50) NOT NULL,
+    Descricao VARCHAR(200) NOT NULL,
     PRIMARY KEY (ID)
 );
 
 CREATE TABLE Exercicio(
-	ID INT AUTO_INCREMENT,
-    NOME VARCHAR(50),
-    Modulo_FK int, 
+	ID INT AUTO_INCREMENT NOT NULL,
+    Nome VARCHAR(50) NOT NULL,
+    Descricao VARCHAR(200) NOT NULL,
+    Modulo_FK int NOT NULL, 
     PRIMARY KEY (ID),
     FOREIGN KEY (Modulo_FK)
     REFERENCES Modulo(ID)
 );
 
 CREATE TABLE Questoes(
-	ID INT AUTO_INCREMENT,
-    NOME VARCHAR(50),
-    Exercicio_FK INT,
+	ID INT AUTO_INCREMENT NOT NULL,
+    Texto_Questao VARCHAR(50) NOT NULL,
+    Exercicio_FK INT NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (Exercicio_FK)
     REFERENCES Exercicio(ID)
 );
     
 CREATE TABLE Respostas(
-	ID INT AUTO_INCREMENT,
-    NOME VARCHAR(50),
-    Questoes_FK INT,
-    Aluno_FK INT,
+	ID INT AUTO_INCREMENT NOT NULL,
+    Texto_Resposta VARCHAR(50) NOT NULL,
+    Questoes_FK INT NOT NULL,
+    Aluno_FK INT NOT NULL,
     PRIMARY KEY(ID),
     FOREIGN KEY (Questoes_FK)
     REFERENCES Questoes(ID),
@@ -68,10 +66,18 @@ CREATE TABLE Respostas(
     REFERENCES Aluno(ID)
 );
 
+CREATE TABLE Perfil_Aluno(
+	ID INT AUTO_INCREMENT NOT NULL,
+    Imagem LONGBLOB NOT NULL,
+    Aluno_FK INT NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (Aluno_FK)
+    REFERENCES Aluno(ID)
+);
+
 -- Dados de Teste para inicialização do BD
 INSERT Professor VALUES(NULL, 'Prof. Exemplo de Teste', 'ProfessorTeste@exemplo.com','12345678');
-INSERT Turma VALUES('AAA0000AAA',NULL,1);
-INSERT Aluno VALUES(NULL, 'Aluno Teste Da Silva', 'AlunoTeste@exemplo.com','AAA0000AAA','12345678');
+INSERT Turma VALUES('AAA0000AAA',1);
 
 -- Funções do Sistema
 -- Função de disponiblidade de Email

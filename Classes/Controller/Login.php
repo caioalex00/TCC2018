@@ -18,6 +18,8 @@ class Login {
     private $logado = false;
     /** @var string $ID variavel responsavel por armazenar o ID correspondente ao usuário no banco de dados */
     private $ID;
+    /** @var string $Turma variavel responsavel por armazenar a Turma correspondente ao usuário no banco de dados */
+    private $Turma;
     /** @var string $nivel variavel responsavel por armazenar o nivel de acesso correspondente ao usuário no banco de dados */
     private $nivel;
     /** @var object $read variavel responsavel por armazenar o objeto da função Read do CRUD */
@@ -89,6 +91,9 @@ class Login {
             if($Infs[0]['Email'] == $this->login && $Infs[0]['Senha'] == $this->senha){
                 $this->ID = $Infs[0]['ID'];
                 $this->logado = true;
+                if(isset($Infs[0]['Turma_COD_FK'])){
+                    $this->Turma = $Infs[0]['Turma_COD_FK'];
+                }
             }
         }
     }
@@ -104,6 +109,9 @@ class Login {
         $_SESSION['Login_User'] = $this->login;
         $_SESSION['Senha_User'] = $this->senha;
         $_SESSION['Nivel_User'] = $this->nivel;
+        if(!empty($this->Turma)){
+            $_SESSION['Turma_User'] = $this->Turma;
+        }
     }
     
     /**
