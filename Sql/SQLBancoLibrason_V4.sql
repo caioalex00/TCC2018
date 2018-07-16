@@ -75,6 +75,15 @@ CREATE TABLE Perfil_Aluno(
     REFERENCES Aluno(ID)
 );
 
+CREATE TABLE Perfil_Professor(
+	ID INT AUTO_INCREMENT NOT NULL,
+    Imagem LONGBLOB NOT NULL,
+    Professor_FK INT NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (Professor_FK)
+    REFERENCES Professor(ID)
+);
+
 -- Dados de Teste para inicialização do BD
 INSERT Professor VALUES(NULL, 'Prof. Exemplo de Teste', 'ProfessorTeste@exemplo.com','12345678');
 INSERT Turma VALUES('AAA0000AAA',1);

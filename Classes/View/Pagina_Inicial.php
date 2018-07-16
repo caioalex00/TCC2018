@@ -1,3 +1,10 @@
+<?php
+require_once '../../loader.php';
+
+if(isset($_SESSION['Nivel_User'])){
+echo '<script> window.location.href = "../../index.php";</script>';
+} 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -200,7 +207,7 @@
                         
                         <h1 class="h1 Fonte-Modal-Principal">Cadastro</h1>
                             <?php include_once '../Controller/MSGErroCadastro.php'; ?>
-                        <form method="POST" action="../Controller/CadastrarUsuario.php" class="Modal-Aluno" enctype="multipart/form-data">
+                        <form method="POST" action="CarregarFotoAluno.php" class="Modal-Aluno" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="Nome-Formulario-A-C">Nome Completo</label>
@@ -220,7 +227,7 @@
                                     <small id="SenhaHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="ComSenha-Formulario-A-C">Comfirmar Senha</label>
+                                    <label for="ComSenha-Formulario-A-C">Confirmar Senha</label>
                                     <input name="ComSenha-Formulario" type="password" class="form-control" id="ComSenha-formulario-A-C" placeholder="Entre com sua senha novamente">
                                 </div>
                             </div>
@@ -286,7 +293,7 @@
                         
                         <h1 class="h1 Fonte-Modal-Principal">Cadastro</h1>
                             <?php include '../Controller/MSGErroCadastro.php'; ?>
-                        <form method="POST" action="../Controller/CadastrarUsuario.php" class="Modal-Aluno" enctype="multipart/form-data">
+                        <form method="POST" action="CarregarFotoProfessor.php" class="Modal-Aluno" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                 <label for="Nome-Formulario-P-C">Nome Completo</label>
@@ -306,7 +313,7 @@
                                     <small id="SenhaHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="ComSenha-Formulario-P-C">Comfirmar Senha</label>
+                                    <label for="ComSenha-Formulario-P-C">Confirmar Senha</label>
                                     <input name="ComSenha-Formulario" type="password" class="form-control" id="ComSenha-formulario-P-C" placeholder="Entre com sua senha novamente">
                                 </div>
                             </div>

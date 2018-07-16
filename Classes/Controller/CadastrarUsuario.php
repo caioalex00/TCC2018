@@ -14,17 +14,24 @@ include_once '../../loader.php';
 //Inicia processo de cadastro caso botão de cadastro do Aluno tenha sido pressionado
 if(isset($_REQUEST['Cadastrar-A'])){
     
-    //Coletando Informações para o Cdastro do Aluno
+    //Coletando Informações para o Cadastro do Aluno
     $nomeCompleto = $_REQUEST['Nome-Formulario'];
     $email = $_REQUEST['Email-Formulario'];
     $senha = $_REQUEST['Senha-Formulario'];
     $senhaComfirmacao = $_REQUEST['ComSenha-Formulario'];
-    $fotoDePerfil = $_FILES['Foto-Formulario'];
+    $fotoDePerfil = $_SESSION['tmpFotoCadastroCaminho'];
     $turma = $_REQUEST['Turma-Formulario'];
+    unset($_SESSION['tmpFotoCadastroCaminho']);
+    
+    // Informações do Corte de Foto
+    $x = $_REQUEST['x'];
+    $y = $_REQUEST['y'];
+    $w = $_REQUEST['w'];
+    $h = $_REQUEST['h'];
     
     // Instanciando Objeto Cadastro para cadastrar Aluno no Sistema
     $cadastro = new Cadastro();
-    $cadastro -> cadastroAluno($nomeCompleto, $email, $senha, $senhaComfirmacao, $fotoDePerfil, $turma);
+    $cadastro -> cadastroAluno($nomeCompleto, $email, $senha, $senhaComfirmacao, $fotoDePerfil, $turma, $x, $y, $w, $h);
 }
 
 //Inicia processo de cadastro caso botão de cadastro do Aluno tenha sido pressionado
@@ -35,9 +42,16 @@ if(isset($_REQUEST['Cadastrar-P'])){
     $email = $_REQUEST['Email-Formulario'];
     $senha = $_REQUEST['Senha-Formulario'];
     $senhaComfirmacao = $_REQUEST['ComSenha-Formulario'];
-    $fotoDePerfil = $_FILES['Foto-Formulario'];
+    $fotoDePerfil = $_SESSION['tmpFotoCadastroCaminho'];
+    unset($_SESSION['tmpFotoCadastroCaminho']);
+    
+    // Informações do Corte de Foto
+    $x = $_REQUEST['x'];
+    $y = $_REQUEST['y'];
+    $w = $_REQUEST['w'];
+    $h = $_REQUEST['h'];
     
     // Instanciando Objeto Cadastro para cadastrar Professor no Sistema
     $cadastro = new Cadastro();
-    $cadastro -> cadastroProfessor($nomeCompleto, $email, $senha, $senhaComfirmacao, $fotoDePerfil);
+    $cadastro -> cadastroProfessor($nomeCompleto, $email, $senha, $senhaComfirmacao, $fotoDePerfil, $x, $y, $w, $h);
 }

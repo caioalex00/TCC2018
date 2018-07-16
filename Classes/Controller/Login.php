@@ -123,7 +123,6 @@ class Login {
     public static function encerrarLogin(){
         unset($_SESSION);
         session_destroy();
-        echo "<script>alert('Login encerrado! Até mais')</script>";
         echo "<script>window.location.href = '../../index.php'</script>";
     }
 }

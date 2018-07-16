@@ -39,15 +39,19 @@ class Cadastro {
      * @Descrição: Responsavel por utilizar todas as funções de cadastro do Aluno,
      * para utiliza esse método basta passar os dados necessarios pelos parametros.
      * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
-     * @versao 0.4 - 25/06/2018
+     * @versao 0.5 - 15/07/2018
      * @param string $nome armazena o nome do aluno
      * @param string $email armazena o email do aluno
      * @param string $senha armazena a senha do aluno
      * @param string $senhaCom armazena a senha de comfirmação do aluno
      * @param string $foto armazena a foto de perfil do aluno
      * @param string $turma armazena a turma que o aluno pertence
+     * @param string $x armazena o eixo x do recorte de foto
+     * @param string $y armazena o eixo y do recorte de foto
+     * @param string $w armazena a lagura do recorte de foto
+     * @param string $h armazena a altura do recorte de foto
      */
-    public function cadastroAluno($nome, $email, $senha, $senhaCom, $foto, $turma){
+    public function cadastroAluno($nome, $email, $senha, $senhaCom, $foto, $turma,$x,$y,$w,$h){
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
@@ -61,8 +65,8 @@ class Cadastro {
         }else{
             $this->encriptarSenha();
             $this->realizarCadastroAluno();
-            $this->subirFotoAluno();
-            //echo "<script>window.location.href = '../View/Pagina_Inicial.php?SucessoNoCadastro'</script>";
+            $this->subirFotoAluno($x,$y,$w,$h);
+            echo "<script>window.location.href = '../View/Pagina_Inicial.php?SucessoNoCadastro'</script>";
         }
     }
     
@@ -76,8 +80,13 @@ class Cadastro {
      * @param string $senha armazena a senha do professor
      * @param string $senhaCom armazena a senha de comfirmação do professor
      * @param string $foto armazena a foto de perfil do professor
+     * @param string $turma armazena a turma que o aluno pertence
+     * @param string $x armazena o eixo x do recorte de foto
+     * @param string $y armazena o eixo y do recorte de foto
+     * @param string $w armazena a lagura do recorte de foto
+     * @param string $h armazena a altura do recorte de foto
      */
-    public function cadastroProfessor($nome, $email, $senha, $senhaCom, $foto) {
+    public function cadastroProfessor($nome, $email, $senha, $senhaCom, $foto, $x, $y, $w, $h) {
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
@@ -90,6 +99,7 @@ class Cadastro {
         }else{
             $this->encriptarSenha();
             $this->realizarCadastroProfessor();
+            $this->subirFotoProfessor($x,$y,$w,$h);
             echo "<script>window.location.href = '../View/Pagina_Inicial.php?SucessoNoCadastro'</script>";
         }
     }
@@ -198,7 +208,7 @@ class Cadastro {
     private function realizarCadastroAluno(){
         $tabela = "Aluno";
         $dadosTabela = "ID,Nome,Email,Turma_COD_FK,Senha";
-        $dadosValues = "null," . $this->nome . "," .$this->email . "," . $this->turma . "," . $this->senhaSegura;
+        $dadosValues = "null|\|R" . $this->nome . "|\|R" .$this->email . "|\|R" . $this->turma . "|\|R" . $this->senhaSegura;
         $this->create = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create->executarQuery();
         $this->idGerado = $this->create->idGerado;
@@ -213,22 +223,76 @@ class Cadastro {
     private function realizarCadastroProfessor(){
         $tabela = "professor";
         $dadosTabela = "ID,Nome,Email,Senha";
-        $dadosValues = "null," . $this->nome . "," .$this->email . "," . $this->senhaSegura;
+        $dadosValues = "null|\|R" . $this->nome . "|\|R" .$this->email . "|\|R" . $this->senhaSegura;
         $this->create = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create->executarQuery();
+        $this->idGerado = $this->create->idGerado;
     }
     
-    private function subirFotoAluno(){
-        $imagem = $this->ftPerfil['tmp_name'];
-        $tamanho = $this->ftPerfil['size'];
-        $fp = fopen($imagem, "rb");
-        $conteudo = fread($fp, $tamanho);
-        $conteudo = addslashes($conteudo);
-        fclose($fp);
+    /**
+     * @Descrição: Esse método recorta a foto de acordo com o que o aluno fez na pagina VIEW
+     * CarregarFotoAluno e insere ela no banco de dados em formato Binario em um campo BLOB
+     * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.5 - 15/07/2018
+     * @param string $x armazena o eixo x do recorte de foto
+     * @param string $y armazena o eixo y do recorte de foto
+     * @param string $w armazena a lagura do recorte de foto
+     * @param string $h armazena a altura do recorte de foto
+     */
+    private function subirFotoAluno($x,$y,$w,$h){
+        $targ_w = $targ_h = 500;
+	$jpeg_quality = 90;
+	$src = "../../Temp/" . $this-> ftPerfil;
+	$img_r = imagecreatefromjpeg($src);
+	$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
+        imagecopyresampled($dst_r,$img_r,0,0,$x,$y,
+	$targ_w,$targ_h,$w,$h);
+        
+        
+        ob_start();
+	imagejpeg($dst_r,null,$jpeg_quality);
+        $conteudoF = ob_get_contents();
+        ob_end_clean();
+        
+        unlink($src);
         
         $tabela = "Perfil_Aluno";
         $dadosTabela = "ID,Imagem,Aluno_FK";
-        $dadosValues = "null," . $conteudo . "," . $this->idGerado;
+        $dadosValues = "null|\|R" . $conteudoF . "|\|R" . $this->idGerado;
+        $this->create1 = new Create($tabela, $dadosTabela, $dadosValues);
+        $this->create1->executarQuery();
+    }
+    
+    /**
+     * @Descrição: Esse método recorta a foto de acordo com o que o professor fez na pagina VIEW
+     * CarregarFotoProfessor e insere ela no banco de dados em formato Binario em um campo BLOB.
+     * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.5 - 15/07/2018
+     * @param string $x armazena o eixo x do recorte de foto
+     * @param string $y armazena o eixo y do recorte de foto
+     * @param string $w armazena a lagura do recorte de foto
+     * @param string $h armazena a altura do recorte de foto
+     */
+    private function subirFotoProfessor($x,$y,$w,$h){
+        $targ_w = $targ_h = 500;
+	$jpeg_quality = 90;
+	$src = "../../Temp/" . $this-> ftPerfil;
+	$img_r = imagecreatefromjpeg($src);
+	$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
+        imagecopyresampled($dst_r,$img_r,0,0,$x,$y,
+	$targ_w,$targ_h,$w,$h);
+        
+        
+        ob_start();
+	imagejpeg($dst_r,null,$jpeg_quality);
+        $conteudoF = ob_get_contents();
+        ob_end_clean();
+        
+        unlink($src);
+        
+        $tabela = "Perfil_Professor";
+        $dadosTabela = "ID,Imagem,Professor_FK";
+        $dadosValues = "null|\|R" . $conteudoF . "|\|R" . $this->idGerado;
         $this->create1 = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create1->executarQuery();
     }

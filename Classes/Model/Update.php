@@ -100,7 +100,7 @@ class Update extends Conexao{
             $con = $this -> conectar();
             //preparamos a query
             $pdo = $con -> prepare($this -> queryFinal);
-            $array = explode(",", $this->dadosValues);
+            $array = explode("|\|R", $this->dadosValues);
             $numParam = count($array);
             //Inserido dados necessarios no bindParam por meio de array
             for($i = 1, $j = 0;$j < $numParam;$i++,$j++){

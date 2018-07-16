@@ -1,0 +1,1 @@
+Nessa pasta ficam armazenados arquivos temporarios que o servidor ira trabalhar, como o tratamento de fotos antes de ser feito o upload para o banco de dados

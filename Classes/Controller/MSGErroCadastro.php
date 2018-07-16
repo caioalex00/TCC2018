@@ -1,4 +1,15 @@
 <?php
+/**
+ * @project: librason
+ * @name: MSGErroCadastro
+ * @description: Essa classe detecta o erro no cadastro e imiprimi em um alert danger no menu de cadastro
+ * este arquivo serve de include
+ * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
+ * @author Caio Alexandre De Sousa Ramos
+ * @email caioxandres2000@gmail.com
+ * @version 0.5
+ */
+
 if(isset($_REQUEST['MSGERR']) || isset($_REQUEST['MSGERRP'])){
 
 ?>

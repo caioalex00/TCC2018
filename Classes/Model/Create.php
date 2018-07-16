@@ -121,7 +121,9 @@ class Create extends Conexao{
      * @param string $dadosValues que armazena os dados a serem inseridos no banco
      */
     private function setDadosValues($dadosValues) {
-        $arrayDadosValues = explode(",", $dadosValues);
+        $arrayDadosValues = explode("|\|R", $dadosValues);
+        //echo "<pre>";
+        //print_r($arrayDadosValues);
         $this->dadosValues = $arrayDadosValues;
     }
 
