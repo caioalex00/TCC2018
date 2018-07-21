@@ -32,7 +32,7 @@ if(isset($_REQUEST['MSGERR']) || isset($_REQUEST['MSGERRP'])){
     }else if($ERROR == "ERROR-Senha-2"){
         echo "Senhas Incompatíveis";
     }else if($ERROR == "ERROR-Turma-1"){
-        echo "Código de Turma Incorreto";
+        echo "Código de Turma Incorreto ou Turma fechada para entrada de alunos";
     }
 ?>
     

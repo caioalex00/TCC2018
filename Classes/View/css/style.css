@@ -229,6 +229,11 @@ label{
     color: white;
 }
 
+.btn-confirmar, .btn-confirmar:focus, .btn-confirmar:active{
+    background: #0261b2;
+    color: white;
+}
+
 .Modal-Aluno{
     background: #f8f8f8;
     padding: 10px;
@@ -320,6 +325,27 @@ label{
 
 .link-card-sessao{
     background: none;
+    padding: 10px;
+}
+
+
+.link-card-sessao-in{
+    background: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.link-card-sessao-in a:hover{
+    text-decoration: none;
+}
+
+.link-card-sessao-in:hover{
+    background: rgba(255,50,41,0.3);
+    transition: linear 0.3s;
+}
+
+.link-card-sessao-in img{
+    width: 100%;
 }
 
 .link-card-sessao-titulo{
@@ -365,4 +391,141 @@ label{
 
 .FotoConfigracaoCadast img{
     height: 100%;
+}
+
+.Card-Turma{
+    margin-bottom: 40px;
+}
+
+.Card-Turma figure{
+    width: 100%;
+}
+
+.Card-Turma figure img{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.Card-Group-Turmas{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.Card-Turma-Status, .Card-Turma-Cod{
+    text-align: center;
+    margin: 0;
+    color: #0261b2;
+    font-family: Montserrat-Regular;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Card-Turma-back{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Card-Turma-back:hover{
+    background: rgba(255,50,41,0.3);
+    transition: linear 0.3s;
+    text-decoration: none;
+}
+
+.Card-Turma-back a:hover{
+    text-decoration: none;
+}
+
+.Ajuda-E-Controle-Turma{
+    margin-top: 40px;
+}
+
+.Turma-Controle-Status {
+    background: rgba(255,255,255,0.6);
+    border: 2px solid #0261b2;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.texto-controle{
+    font-family: Montserrat-Regular;
+    margin-top: 17px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.switch{
+    margin-top: 13px;
+}
+/*Codigo de botão togle swich - autor - W3School*/
+
+/* The switch - the box around the slider */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background: #00cc33;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  background: #ff3333;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Fim do codigo Toggle Swich */
+
+.tabela-alunos{
+    border: 2px solid #ff3229;
+    background: #FFF;
+}
+
+.tabela-alunos tr td,.tabela-alunos tr th {
+    border-color: #ff3229;
 }

@@ -31,7 +31,7 @@ function CarregarClasse($classe){
     //Por meio do foreach pecorremos as pastas, vereficando se nelas contem a classe passada
     //no parametro do metodo
     foreach ($Pastas as $Pasta) {
-        $Caminho = __DIR__ . "/" . "Classes" . "/" . $Pasta . "/" . $classe . ".php";
+        $Caminho = __DIR__ . "/" . "Classes" . "/" . $Pasta . "/" . $classe . ".class.php";
         
         if (file_exists($Caminho) && !is_dir($Caminho)){
             include_once $Caminho;

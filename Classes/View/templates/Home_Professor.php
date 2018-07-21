@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Home - Professor #</title>
+        <title>Home - Professor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="Classes/View/bootstrap-4.1.0-dist/css/bootstrap.css">
@@ -70,40 +70,65 @@
         </nav>
         
         <main class="Principal-Conteudo">
-            
-            <h1 class="titulo-sessoes">Navegue nas principais sessões do website</h1>
-            
-                <section class="row cards-link-grupo">
-                    
-                        <div class="card col-md-3 persona-card-inicio link-card-sessao">
-                                <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-1.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <a href="Classes/View/Curso.php"><p class="card-text h1 link-card-sessao-titulo">AVA</p></a>
+            <div class="container">
+                <h1 class="titulo-sessoes">Navegue nas principais sessões do website</h1>
+
+                    <section class="row cards-link-grupo">
+
+                            <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                                <div class="link-card-sessao-in">
+                                    <a href="Classes/View/Curso.php">
+                                        <center>
+                                            <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-1.png" alt="Card image cap">
+                                            <div class="card-body">
+                                                <p class="card-text h1 link-card-sessao-titulo">AVA</p>
+                                            </div>
+                                        </center>
+                                    </a>
                                 </div>
-                        </div>
-                        
-                    <div class="card col-md-3 persona-card-inicio link-card-sessao">
-                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-2.png" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="Classes/View/Libras.php"><p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">LIBRAS</p></a>
-                        </div>
-                    </div>
+                            </div>
 
-                    <div class="card col-md-3 persona-card-inicio link-card-sessao">
-                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-3.png" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="Classes/View/Surdo.php"><p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">SURDOS</p></a>
+                        <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                            <div class="link-card-sessao-in">
+                                <center>
+                                    <a href="Classes/View/Libras.php">
+                                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-2.png" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">LIBRAS</p>
+                                        </div>
+                                    </a>
+                                </center>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="card col-md-3 persona-card-inicio link-card-sessao">
-                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-4.png" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="Classes/View/Turmas.php"><p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">Turmas</p></a>
-                        </div>
-                    </div>
 
-                </section>
+                        <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                            <div class="link-card-sessao-in">
+                                <center>
+                                    <a href="Classes/View/Surdo.php">
+                                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-3.png" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">SURDOS</p>
+                                        </div>
+                                    </a>
+                                </center>
+                            </div>
+                        </div>
+
+                        <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                            <div class="link-card-sessao-in">
+                                <center>
+                                    <a href="Classes/View/Turmas.php">
+                                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-4.png" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">Turmas</p>
+                                        </div>
+                                    </a>
+                                </center>
+                            </div>
+                        </div>
+
+                    </section>
+            </div>
         </main>
         
         <footer>

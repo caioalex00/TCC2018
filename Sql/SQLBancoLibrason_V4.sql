@@ -12,6 +12,7 @@ CREATE TABLE Professor(
 CREATE TABLE Turma(
 	COD VARCHAR(10) NOT NULL,
     Professor_ID_FK INT NOT NULL,
+    Status BOOL NOT NULL,
     PRIMARY KEY(COD),
     FOREIGN KEY (Professor_ID_FK)
     REFERENCES Professor(ID)
@@ -84,10 +85,6 @@ CREATE TABLE Perfil_Professor(
     REFERENCES Professor(ID)
 );
 
--- Dados de Teste para inicialização do BD
-INSERT Professor VALUES(NULL, 'Prof. Exemplo de Teste', 'ProfessorTeste@exemplo.com','12345678');
-INSERT Turma VALUES('AAA0000AAA',1);
-
 -- Funções do Sistema
 -- Função de disponiblidade de Email
 DELIMITER $$
@@ -157,3 +154,67 @@ RETURN retorno;
 END$$
 
 DELIMITER ;
+
+-- Função de qtsDeTurmasProfessor
+DELIMITER $$
+
+CREATE FUNCTION qtsDeTurmasProfessor(ID_Professor INT)
+RETURNS INT
+BEGIN
+
+DECLARE retorno INT;
+
+SELECT COUNT(t.COD) INTO retorno FROM Professor p 
+INNER JOIN Turma t ON t.Professor_ID_FK = p.ID
+WHERE p.ID = ID_Professor;
+
+RETURN retorno;
+END$$
+
+DELIMITER ;
+
+-- Função de qtsDeTurmasProfessorAtivas
+DELIMITER $$
+
+CREATE FUNCTION qtsDeTurmasProfessorAtivas(ID_Professor INT)
+RETURNS INT
+BEGIN
+
+DECLARE retorno INT;
+
+SELECT COUNT(t.COD) INTO retorno FROM Professor p 
+INNER JOIN Turma t ON t.Professor_ID_FK = p.ID
+WHERE p.ID = ID_Professor AND t.Status = true;
+
+RETURN retorno;
+END$$
+
+DELIMITER ;
+
+-- Função de disponiblidade de Codico de Turma
+DELIMITER $$
+
+CREATE FUNCTION disponiblidadeDeTurma (Turma_COD VARCHAR(10))
+RETURNS BOOL
+BEGIN
+
+DECLARE turma VARCHAR(10);
+DECLARE retorno BOOL;
+
+SET retorno = TRUE;
+
+SELECT t.COD INTO turma FROM turma t WHERE t.COD = Turma_COD;
+
+IF turma = Turma_COD THEN
+SET retorno = FALSE;
+END IF;
+
+RETURN retorno;
+END$$
+
+DELIMITER ;
+
+-- Views do Banco
+
+CREATE VIEW Alunos_Turma AS
+SELECT a.ID, a.nome, a.Turma_COD_FK FROM Aluno a;

@@ -21,6 +21,15 @@ if(isset($_REQUEST['FotoPerfil'])){
     $User->imprimirFotoPerfil();
 }
 
+// Aqui imprimi a foto de perfil de outros usuários solicitado caso aluno
+if(isset($_REQUEST['FotoPerfilAluno'])){
+    $ID = $_REQUEST['FotoPerfilAluno'];
+    $Nivel = "A";
+    
+    $User = new Usuario($ID, $Nivel);
+    $User->imprimirFotoPerfil();
+}
+
 // Aqui imprimi a foto de perfil a ser cadastrada caso solicitado
 if(isset($_REQUEST['FotoPerfilConfig'])){
     Header( "Content-type: image/gif");

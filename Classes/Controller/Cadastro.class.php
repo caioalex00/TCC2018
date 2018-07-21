@@ -169,15 +169,15 @@ class Cadastro {
     }
     
     /**
-     * @Descrição: Verefica se a turma inserida pelo aluno existe
+     * @Descrição: Verefica se a turma inserida pelo aluno existe ou se ela está aberta para receber alunos.
      * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
      * @versao 0.4 - 25/06/2018
      * @parametros sem parâmetros
      */
     private function verificarExistenciaDeTurma(){
         $tabela = "Turma";
-        $dadosTabela = "COD"; 
-        $dadosValues = $this->turma;
+        $dadosTabela = "COD,Status"; 
+        $dadosValues = $this->turma . "," . '1';
         $this->read1 = new Read($tabela, $dadosTabela, $dadosValues);
         $this->read1->executarQuery();
         $this->read1->getResultado();

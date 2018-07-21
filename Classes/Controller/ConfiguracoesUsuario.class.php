@@ -162,6 +162,15 @@ class ConfiguracoesUsuario {
         $this->email = $Email;
     }
     
+    /**
+     * @Descrição: Essa função altera a foto de perfil do usuário pelas configurações
+     * @versao 0.6 - 15/07/2018
+     * @param string $foto armazena o caminho temporario da foto.
+     * @param string $x corderdenada x do corte na foto
+     * @param string $y corderdenada y do corte na foto
+     * @param string $w largura do corte na foto
+     * @param string $h altura do corte na foto
+     */
     public static function alterarFoto($foto, $x, $y, $h, $w){
         $targ_w = $targ_h = 500;
 	$jpeg_quality = 90;

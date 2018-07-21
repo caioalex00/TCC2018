@@ -122,8 +122,6 @@ class Create extends Conexao{
      */
     private function setDadosValues($dadosValues) {
         $arrayDadosValues = explode("|\|R", $dadosValues);
-        //echo "<pre>";
-        //print_r($arrayDadosValues);
         $this->dadosValues = $arrayDadosValues;
     }
 
