@@ -131,7 +131,7 @@
             <hr>
             
             <div class="container">
-                <table class="table table-hover tabela-alunos">
+                <table class="table table-hover tabela-alunos table-responsive-sm">
                     <thead>
                       <tr>
                         <th scope="col">Perfil</th>

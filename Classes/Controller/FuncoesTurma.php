@@ -63,7 +63,7 @@ if(isset($_SESSION['Nivel_User'])){
             for ($i = 0; $i < $numAlunos; $i++){
             ?>
                 <tr>
-                    <th scope="row" style="padding: 4px 10px;"><img style="border: 2px solid #ff3229; border-radius: 100%;" src="../Controller/CarregarImagens.php?FotoPerfilAluno=<?php echo $Aluno[$i]['ID']?>" width="50" height="50"></th>
+                    <th scope="row" class="align-middle" style="padding: 4px 10px;"><img style="border: 2px solid #ff3229; border-radius: 100%;" src="../Controller/CarregarImagens.php?FotoPerfilAluno=<?php echo $Aluno[$i]['ID']?>" width="50" height="50"></th>
                     <td><?php echo $Aluno[$i]['nome'];?></td>
                     <td>Cursando</td>
                     <td><a href="AnaliseDeProvas.php?ID=<?php echo $Aluno[$i]['ID'];?>">Acessar Provas</a></td>

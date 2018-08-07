@@ -61,7 +61,8 @@ class Conexao {
         
         try {
             //Aqui instaciamos a classe PDO que realizara a conexão com o banco de dados
-            $this->conexao = new PDO($this->tipo . ':host=' . $this->host . ';dbname=' . $this->dbname, $this->usuario, $this->senha);
+            $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',);
+            $this->conexao = new PDO($this->tipo . ':host=' . $this->host . ';dbname=' . $this->dbname, $this->usuario, $this->senha,$options);
             
         } catch (Exception $ex) {
             //Caso haja algum erro na conexao, o erro será imprimido na tela

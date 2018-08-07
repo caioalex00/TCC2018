@@ -529,3 +529,92 @@ input:checked + .slider:before {
 .tabela-alunos tr td,.tabela-alunos tr th {
     border-color: #ff3229;
 }
+
+.tabela-modulo{
+    border-color: #ff3229;
+    width: 100%;
+}
+
+.tabela-modulo tr td, .tabela-modulo tr th{
+    padding: 9px;
+    border: 4px solid #ff3229;
+    border-left: none;
+    border-right: none;
+    color: #ff3229;
+}
+
+.tabela-modulo tr td a{
+    color: #ff3229;
+    font-family: Montserrat-Regular;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.tabela-modulo tr td a:hover{
+    text-decoration: none;
+}
+
+.tabela-modulo tr td:hover{
+    background: rgba(2,97,178,0.1);
+}
+
+.modulo{
+    min-height: 300px;
+}
+
+.modulo-icone{
+    height: 300px;
+}
+
+.modulo-figure-icone{
+    width: 100%;
+    height: 100%;
+    border: 4px solid #ff3229;
+    border-radius: 10px;
+}
+
+.modulo-figure-icone img{
+    height: 60%;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: auto;
+}
+
+.modulo-titulo{
+    color: #0261b2;
+    font-family: Montserrat-Regular;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.Curso-descricao{
+    text-align: justify;
+    font-family: Montserrat-Regular;
+}
+
+.img-icon-curso{
+    margin: auto 10px;
+    height: 25px
+}
+
+.Video{
+    width: 80%;
+    margin: 30px auto;
+    border: 4px solid #0261b2;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    height: 100vh;
+    z-index: 999;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}

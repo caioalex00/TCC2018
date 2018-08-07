@@ -110,7 +110,7 @@
                             <p>Você está preste a abrir uma nova turma.</p>
                             <p>1. Cada professor pode ter no máximo 6 turmas abertas.</p>
                             <p>2. Se quiser criar uma turma nova, deve ter no máximo 5 turmas abertas.</p>
-                            <p>3. Turmas fechadas apenas impossibilitam o envio de respostas nas atividades do AVA, o aluno ainda poderá visualizar os conteúdos do AVA.</p>
+                            <p>3. Turmas fechadas apenas impossibilitam a entrada de alunos nela.</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-sair" data-dismiss="modal">Cancelar</button>

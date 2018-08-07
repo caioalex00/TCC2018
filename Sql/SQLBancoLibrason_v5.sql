@@ -33,7 +33,19 @@ CREATE TABLE Modulo(
 	ID INT AUTO_INCREMENT NOT NULL,
     Nome VARCHAR(50) NOT NULL,
     Descricao VARCHAR(200) NOT NULL,
+    Imagem LONGBLOB,
     PRIMARY KEY (ID)
+);
+
+CREATE TABLE Video(
+	ID INT AUTO_INCREMENT NOT NULL,
+    Nome VARCHAR(50) NOT NULL,
+    Descricao VARCHAR(200) NOT NULL,
+    URL_Video VARCHAR(200) NOT NULL,
+    Modulo_FK int NOT NULL, 
+    PRIMARY KEY (ID),
+    FOREIGN KEY (Modulo_FK)
+    REFERENCES Modulo(ID)
 );
 
 CREATE TABLE Exercicio(
@@ -84,6 +96,31 @@ CREATE TABLE Perfil_Professor(
     FOREIGN KEY (Professor_FK)
     REFERENCES Professor(ID)
 );
+
+-- Inserido Dados diretamente no banco
+
+-- Módulos
+
+-- Modulo 1
+INSERT INTO modulo (ID, Nome, Descricao, Imagem) VALUES (1, 'Uma breve introdução', 'Nesse módulo é feito uma introdução a aspectos importantes da Libras', NULL);
+INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'ABC', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uwJcGuR9hPI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 1);
+INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Parâmetros', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/MldHJ02neEA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 1);
+INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'ABC', 'Exercicio referente ao Video do módulo 1 que ensina sobre o ABC em Libras', 1);
+INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Parâmetros', 'Exercicio referente ao Video do módulo 1 que ensina sobre os Parâmetros em Libras', 1);
+
+-- Modulo 2
+INSERT INTO modulo (ID, Nome, Descricao, Imagem) VALUES (2, 'Tempo', 'Nesse módulo é ensinado sobre períodos e dias da semana', NULL);
+INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Períodos e Dias da semana', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/hZtn0R-Cvec" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 2);
+INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Dias da semana', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uwJcGuR9hPI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 2);
+INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Períodos e Dias da semana', 'Exercicio referente ao Video do módulo 2 que ensina sobre períodos e dias da semana em Libras', 2);
+INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Dias da semana', 'Exercicio referente ao Video do módulo 2 que ensina sobre os dias da semana em Libras', 2);
+
+-- Modulo 3
+INSERT INTO modulo (ID, Nome, Descricao, Imagem) VALUES (3, 'Natureza', 'Nesse módulo é ensinado sobre Animais, Clima e a Natureza', NULL);
+INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Animais e Classificadores', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/cORmwVOz_5M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 3);
+INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Natureza, Animais, Clima e Estações', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/wlSE6ayEC8c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 3);
+INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Animais e Classificadores', 'Exercicio referente ao Video do módulo 3 que ensina sobre animais e classificadores', 3);
+INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Natureza, Animais, Clima e Estações', 'Exercicio referente ao Video do módulo 3 que ensina sobre natureza, animais, clima e estações em Libras', 3);
 
 -- Funções do Sistema
 -- Função de disponiblidade de Email

@@ -2,7 +2,7 @@
 /**
  * @project: librason
  * @name: CarregarImagens
- * @description: Essa classe trablha com a impressão de imagens
+ * @description: Essa classe trabalha com a impressão de imagens
  * dos usuários casos eles desejem.
  * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
  * @author Caio Alexandre De Sousa Ramos
@@ -34,4 +34,11 @@ if(isset($_REQUEST['FotoPerfilAluno'])){
 if(isset($_REQUEST['FotoPerfilConfig'])){
     Header( "Content-type: image/gif");
     echo $_SESSION['tmpFotoCadastro'];
+}
+
+// Aqui imprimi o icone do modulo
+if(isset($_REQUEST['IconeModulo'])){
+    $IDModulo = $_REQUEST['IconeModulo'];
+    $curso = new Curso;
+    $curso->ImprimirFotoModulo($IDModulo);
 }
