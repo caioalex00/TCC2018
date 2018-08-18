@@ -40,7 +40,7 @@ CREATE TABLE Modulo(
 CREATE TABLE Video(
 	ID INT AUTO_INCREMENT NOT NULL,
     Nome VARCHAR(50) NOT NULL,
-    Descricao VARCHAR(200) NOT NULL,
+    Descricao TEXT NOT NULL,
     URL_Video VARCHAR(200) NOT NULL,
     Modulo_FK int NOT NULL, 
     PRIMARY KEY (ID),
@@ -103,7 +103,7 @@ CREATE TABLE Perfil_Professor(
 
 -- Modulo 1
 INSERT INTO modulo (ID, Nome, Descricao, Imagem) VALUES (1, 'Uma breve introdução', 'Nesse módulo é feito uma introdução a aspectos importantes da Libras', NULL);
-INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'ABC', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uwJcGuR9hPI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 1);
+INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'ABC', 'Os sinais (símbolos) surgem da soma de padrões de mão, e em alguns casos, de pontos de articulação e de movimentos – partes do próprio corpo ou no espaço em que são executados. As libras transmitem mais do que palavras e frases, o sistema possibilita que a comunidade de pessoas surdas exerçam o direito de descobrir o mundo a sua volta por conta própria.O alfabeto em libras, basicamente, consiste na soletração de letras e numerais com as mãos. O sistema é usado, apenas, para formar nomes de pessoas, rótulos, lugares, endereços e vocábulos que se tenha dúvida, ou inexistentes, na língua de sinais.', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uwJcGuR9hPI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 1);
 INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Parâmetros', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/MldHJ02neEA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 1);
 INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'ABC', 'Exercicio referente ao Video do módulo 1 que ensina sobre o ABC em Libras', 1);
 INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Parâmetros', 'Exercicio referente ao Video do módulo 1 que ensina sobre os Parâmetros em Libras', 1);

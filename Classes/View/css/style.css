@@ -599,22 +599,37 @@ input:checked + .slider:before {
 }
 
 .Video{
-    width: 80%;
-    margin: 30px auto;
+    width: 90%;
+    margin: 0px auto;
     border: 4px solid #0261b2;
 }
 
-.wrapper {
-    display: flex;
-    width: 100%;
+.coluna-ava{
+    background: #FFF;
 }
 
-#sidebar {
-    width: 250px;
-    position: fixed;
-    height: 100vh;
-    z-index: 999;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;
+.DescricaoVideo{
+    width: 90%;
+    padding: 10px;
+    text-align: justify;
+    font-family: Montserrat-Regular;
+    color: #333333;
+    height: 390px;
+    overflow : scroll;
+}
+
+.btn-curso-modulo-interno{
+    background-color: #ff3229;
+    color: #f4f4f4;
+    font-size: 20px;
+    font-family: Montserrat-Regular;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.btn-curso-modulo-interno:hover{
+    color: #FFF;
 }
