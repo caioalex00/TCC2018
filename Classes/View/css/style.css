@@ -633,3 +633,78 @@ input:checked + .slider:before {
 .btn-curso-modulo-interno:hover{
     color: #FFF;
 }
+
+.DescricaoExercicio{
+    color: #333333;
+    text-align: center;
+    font-family: Montserrat-Regular;
+}
+
+.Atividade-Interace{
+    background-color: #FFF;
+    border: 2px solid #0261b2;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 90%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.Atividade-Interace p{
+    background: #e2e2e2;
+    padding: 10px;
+    border-bottom: 2px solid #0261b2;
+}
+
+
+.Atividade-Interace label{
+    color: #0261b2;
+}
+
+.Atividade-Interace bold{
+    font-weight: bold;
+}
+
+.form-atv{
+    width: 100%;
+}
+
+.area-perguntas{
+    padding: 10px;
+    padding-top: 0;
+}
+
+.FotoQuestao img{
+    border: 2px solid #0261b2;
+    margin: 0 auto;
+    width: 530px;
+}
+
+.referencia-video{
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Montserrat-Regular;
+}
+
+.conteudo-referencia{
+    font-size: 12px;
+    font-family: Montserrat-Regular;
+}
+
+.conteudo-referencia bold{
+    font-weight: bold;
+}
+
+.btn-curso-modulo-interno-atv{
+    background-color: #0261b2;
+    color: #f4f4f4;
+    font-size: 20px;
+    font-family: Montserrat-Regular;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 100%;
+}

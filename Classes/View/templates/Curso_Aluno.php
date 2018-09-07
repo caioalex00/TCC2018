@@ -90,10 +90,38 @@
         <footer>
             <p><span class="Logo-Footer">Libras<span class="Logo-Footer-Cor2">on</span></span> foi criado e desenvolvido por Caio Alexandre Ramos, Micaella Fernandes e Jacileia Nascimento Soares com orientação de Glaucielle Celestina de Sá e Iury Gomes</p>
         </footer>
+        
+        <!-- Modals -->
+        <!-- Cadastro Realizado -->
+        <div class="modal fade" id="ModalRepostas" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Exercicío respondido com suscesso!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <div class="modal-body">
+                            Assista os demais vídeos e responda os exercícios, lembrando que você poderá responder os exercícios somente uma vez cada.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="bootstrap-4.1.0-dist/jquery-3.3.1.min.js"></script>
         <script src="bootstrap-4.1.0-dist/popper.js"></script>
         <script src="bootstrap-4.1.0-dist/js/bootstrap.js"></script>
+        <!-- Sucesso de exercicio -->
+        <?php if(isset($_REQUEST['RepostaUsuarioAoSistema'])){?>
+        <script>
+                $('#ModalRepostas').modal('show');
+        </script>
+        <?php } ?>
     </body>
 </html>

@@ -41,6 +41,7 @@ CREATE TABLE Video(
 	ID INT AUTO_INCREMENT NOT NULL,
     Nome VARCHAR(50) NOT NULL,
     Descricao TEXT NOT NULL,
+    Referencial TEXT,
     URL_Video VARCHAR(200) NOT NULL,
     Modulo_FK int NOT NULL, 
     PRIMARY KEY (ID),
@@ -60,7 +61,13 @@ CREATE TABLE Exercicio(
 
 CREATE TABLE Questoes(
 	ID INT AUTO_INCREMENT NOT NULL,
-    Texto_Questao VARCHAR(50) NOT NULL,
+    Texto_Questao VARCHAR(200) NOT NULL,
+    AlternativaA VARCHAR(200),
+    AlternativaB VARCHAR(200),
+    AlternativaC VARCHAR(200),
+    AlternativaD VARCHAR(200),
+    AlternativaE VARCHAR(200),
+    Foto VARCHAR(200),
     Exercicio_FK INT NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (Exercicio_FK)
@@ -69,7 +76,7 @@ CREATE TABLE Questoes(
     
 CREATE TABLE Respostas(
 	ID INT AUTO_INCREMENT NOT NULL,
-    Texto_Resposta VARCHAR(50) NOT NULL,
+    Texto_Resposta VARCHAR(200) NOT NULL,
     Questoes_FK INT NOT NULL,
     Aluno_FK INT NOT NULL,
     PRIMARY KEY(ID),
@@ -96,31 +103,6 @@ CREATE TABLE Perfil_Professor(
     FOREIGN KEY (Professor_FK)
     REFERENCES Professor(ID)
 );
-
--- Inserido Dados diretamente no banco
-
--- Módulos
-
--- Modulo 1
-INSERT INTO modulo (ID, Nome, Descricao, Imagem) VALUES (1, 'Uma breve introdução', 'Nesse módulo é feito uma introdução a aspectos importantes da Libras', NULL);
-INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'ABC', 'Os sinais (símbolos) surgem da soma de padrões de mão, e em alguns casos, de pontos de articulação e de movimentos – partes do próprio corpo ou no espaço em que são executados. As libras transmitem mais do que palavras e frases, o sistema possibilita que a comunidade de pessoas surdas exerçam o direito de descobrir o mundo a sua volta por conta própria.O alfabeto em libras, basicamente, consiste na soletração de letras e numerais com as mãos. O sistema é usado, apenas, para formar nomes de pessoas, rótulos, lugares, endereços e vocábulos que se tenha dúvida, ou inexistentes, na língua de sinais.', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uwJcGuR9hPI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 1);
-INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Parâmetros', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/MldHJ02neEA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 1);
-INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'ABC', 'Exercicio referente ao Video do módulo 1 que ensina sobre o ABC em Libras', 1);
-INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Parâmetros', 'Exercicio referente ao Video do módulo 1 que ensina sobre os Parâmetros em Libras', 1);
-
--- Modulo 2
-INSERT INTO modulo (ID, Nome, Descricao, Imagem) VALUES (2, 'Tempo', 'Nesse módulo é ensinado sobre períodos e dias da semana', NULL);
-INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Períodos e Dias da semana', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/hZtn0R-Cvec" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 2);
-INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Dias da semana', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uwJcGuR9hPI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 2);
-INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Períodos e Dias da semana', 'Exercicio referente ao Video do módulo 2 que ensina sobre períodos e dias da semana em Libras', 2);
-INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Dias da semana', 'Exercicio referente ao Video do módulo 2 que ensina sobre os dias da semana em Libras', 2);
-
--- Modulo 3
-INSERT INTO modulo (ID, Nome, Descricao, Imagem) VALUES (3, 'Natureza', 'Nesse módulo é ensinado sobre Animais, Clima e a Natureza', NULL);
-INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Animais e Classificadores', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/cORmwVOz_5M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 3);
-INSERT INTO video (ID, Nome, Descricao, URL_Video, Modulo_FK) VALUES (NULL, 'Natureza, Animais, Clima e Estações', 'Descrição a ser escrita', '<iframe width="560" height="315" src="https://www.youtube.com/embed/wlSE6ayEC8c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>', 3);
-INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Animais e Classificadores', 'Exercicio referente ao Video do módulo 3 que ensina sobre animais e classificadores', 3);
-INSERT INTO exercicio (ID, Nome, Descricao, Modulo_FK) VALUES (NULL, 'Natureza, Animais, Clima e Estações', 'Exercicio referente ao Video do módulo 3 que ensina sobre natureza, animais, clima e estações em Libras', 3);
 
 -- Funções do Sistema
 -- Função de disponiblidade de Email
@@ -255,3 +237,21 @@ DELIMITER ;
 
 CREATE VIEW Alunos_Turma AS
 SELECT a.ID, a.nome, a.Turma_COD_FK FROM Aluno a;
+
+-- Store Procedures
+DELIMITER $$
+CREATE PROCEDURE QuestoesExercicio (ID_E int)
+BEGIN
+    SELECT e.ID as 'ID_Exercicio', q.ID, q.Texto_Questao, q.AlternativaA, q.AlternativaB, q.AlternativaC, q.AlternativaD, q.AlternativaE, q.Foto From Exercicio e INNER JOIN Questoes q ON e.ID = q.Exercicio_FK WHERE e.ID = ID_E;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE vereficarResposta (ID_U int, ID_Q int)
+BEGIN
+    SELECT r.ID, r.Questoes_FK, r.Texto_Resposta From Respostas r 
+	INNER JOIN Questoes q ON q.ID = r.Questoes_FK 
+	WHERE r.Aluno_FK = ID_U && Questoes_FK =ID_Q;
+END $$
+DELIMITER ;
+

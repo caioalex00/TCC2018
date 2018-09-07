@@ -16,10 +16,13 @@ if(isset($_SESSION['Nivel_User'])){
     $ID = $_SESSION['ID_User'];
     $Nivel = $_SESSION['Nivel_User'];
     $User = new Usuario($ID, $Nivel);
-
+    
+    $Exercicio =  new Exercicio($_REQUEST['ID']);
+    $Exercicio->localizarExercicio();
+    
     if($_SESSION['Nivel_User'] == "A"){
         
-        //include_once './templates/ModuloExercicio_Aluno.php';
+        include_once './templates/ModuloExercicio_Aluno.php';
         
     }else if($_SESSION['Nivel_User'] == "P"){
         

@@ -85,6 +85,8 @@
                         <p class="DescricaoVideo"><?php echo $Video->Video['Descricao'] ?></p>
                     </section>
                 </div>
+                <p class="referencia-video">Referências do conteúdo usado na descrição, procure informação e se aprofunde!</p>
+                <p class="conteudo-referencia"><?php echo $Video->Video['Referencial'] ?></p>
                 <a class="btn-curso-modulo-interno" href="Curso.php">Voltar ao curso</a>
             </div>
             

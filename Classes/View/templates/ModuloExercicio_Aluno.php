@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Video - Aluno - # <?php echo $User->turma; ?> #</title>
+        <title>Exercício - Aluno - # <?php echo $User->turma; ?> #</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.1.0-dist/css/bootstrap.css">
@@ -71,21 +71,17 @@
         
         <main class="Principal-Conteudo" style="padding-bottom: 50px;">
 
-            <h1 class="titulo-sessoes" style="margin: 30px">Video : <?php echo $Video->Video['Nome'] ?></h1>
+            <h1 class="titulo-sessoes" style="margin: 30px">Exercicio : <?php echo $Exercicio->Execicio['Nome'] ?></h1>
             
             <div class="container">
+                <p class="DescricaoExercicio" ><?php echo $Exercicio->Execicio['Descricao'] ?></p>
                 <div class="row">
-                    <section class="col-md-8" style="padding: 0">
-                        <section class="Video embed-responsive embed-responsive-16by9">
-                            <?php echo $Video->Video['URL_Video'] ?>
-                        </section>
-                    </section>
-
-                    <section class="col-md-4" style="padding: 0">
-                        <p class="DescricaoVideo"><?php echo $Video->Video['Descricao'] ?></p>
-                    </section>
+                    <form class="form-atv" method="POST" action="../Controller/FuncoesExercicio.php">
+                        <?php $Exercicio -> imprimirQuestoes(); ?>
+                        <?php $Exercicio -> imprimirBotaoEnvio();  ?>
+                        <a class="btn-curso-modulo-interno" href="Curso.php" style="width: 90%;">Voltar ao curso</a>
+                    </form>
                 </div>
-                <a class="btn-curso-modulo-interno" href="Curso.php">Voltar ao curso</a>
             </div>
             
         </main>

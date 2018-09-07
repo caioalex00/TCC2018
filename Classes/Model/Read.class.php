@@ -162,6 +162,37 @@ class Read extends Conexao{
     }
     
     /**
+     * @Descrição: Responsavel por executar StoreProcedures contidas no SGBD
+     * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
+     * @versao 0.8 - 20/02/2018
+     * @parametros Sem parâmetros
+     */ 
+    public function chamarSP() {
+        try {
+            //Preparando Select de Função que foi inserido na variavel tabela 
+            $select = $this->tabela;
+            //Realizamos conexao com o banco
+            $con = $this->conectar();
+            //Preparamos a query
+            $pdo = $con -> prepare($select);
+            //Executamos a query
+            $pdo -> execute();
+            //Armazenamos a quantidade e resultados obtidos
+            $this->qtsResultado = $pdo->rowCount();
+            //Armazena resultado e retornando
+            $resultado = $pdo->fetchAll(PDO::FETCH_ASSOC);
+            $this->resultado = $resultado;
+            
+        } catch (Exception $ex) {
+            //Imprimimos o erro caso haja
+            $resultado = $ex -> getMessage(); 
+        }
+        
+        //Armazenamos o resultado e retornando
+        return $this->resultado =  $resultado;
+    }
+    
+    /**
      * @Descrição: retorna valor contido no atributo $resultado
      * @copyright (c) 10/02/2018, Caio Alexandre de Sousa Ramos
      * @versao 0.2 - 10/03/2018
