@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Curso - Aluno</title>
+        <title>Curso - Professor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
@@ -37,7 +37,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="../Controller/EncerrarLogin.php" class="nav-link Persona-Link-Cor1">Sair</a>
+                            <a href="Surdo.php" class="nav-link Persona-Link-Cor1">Surdo</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="Libras.php" class="nav-link Persona-Link-Cor1">Libras</a>
                         </li>
                         
                         <li class="nav-item menu-user-adpt">
@@ -56,7 +60,7 @@
                                         </div>
                                     </div>
                                     <div class="Turma-Log-Drop">
-                                        Aluno
+                                        Professor
                                     </div>
                                 </section> 
                             </section>
@@ -87,27 +91,6 @@
         <footer>
             <p><span class="Logo-Footer">Libras<span class="Logo-Footer-Cor2">on</span></span> foi criado e desenvolvido por Caio Alexandre Ramos, Micaella Fernandes e Jacileia Nascimento Soares com orientação de Glaucielle Celestina de Sá e Iury Gomes</p>
         </footer>
-        
-        <!-- Modals -->
-        <!-- Cadastro Realizado -->
-        <div class="modal fade" id="ModalRepostas" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Exercicío respondido com suscesso!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                        <div class="modal-body">
-                            Assista os demais vídeos e responda os exercícios, lembrando que você poderá responder os exercícios somente uma vez cada.
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
-                        </div>
-                </div>
-            </div>
-        </div>
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

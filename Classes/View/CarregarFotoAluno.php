@@ -20,7 +20,6 @@ if(isset($_REQUEST['Cadastrar-A'])){
     $senha = $_REQUEST['Senha-Formulario'];
     $senhaComfirmacao = $_REQUEST['ComSenha-Formulario'];
     $fotoDePerfil = $_FILES['Foto-Formulario'];
-    $turma = $_REQUEST['Turma-Formulario'];
     
     // Congurações de Foto
     $foto = $_FILES['Foto-Formulario']['tmp_name'];
@@ -156,7 +155,6 @@ if(isset($_REQUEST['Cadastrar-A'])){
                 <input type="hidden" id="Email" name="Email-Formulario" value="<?php echo $email ?>"/>
                 <input type="hidden" id="Senha" name="Senha-Formulario" value="<?php echo $senha ?>"/>
                 <input type="hidden" id="SenhaC" name="ComSenha-Formulario" value="<?php echo $senhaComfirmacao ?>"/>
-                <input type="hidden" id="Turma" name="Turma-Formulario" value="<?php echo $turma ?>"/>
                 <input type="hidden" id="x" name="x" />
                 <input type="hidden" id="y" name="y" />
                 <input type="hidden" id="w" name="w" />

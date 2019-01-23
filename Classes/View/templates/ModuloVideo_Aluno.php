@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Video - Aluno - # <?php echo $User->turma; ?> #</title>
+        <title>Video - Aluno</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->
@@ -36,11 +37,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="Surdo.php" class="nav-link Persona-Link-Cor1">Surdo</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="Libras.php" class="nav-link Persona-Link-Cor1">Libras</a>
+                            <a href="../Controller/EncerrarLogin.php" class="nav-link Persona-Link-Cor1">Sair</a>
                         </li>
                         
                         <li class="nav-item menu-user-adpt">
@@ -59,7 +56,7 @@
                                         </div>
                                     </div>
                                     <div class="Turma-Log-Drop">
-                                        Turma: <?php echo $User->turma; ?>
+                                        Aluno
                                     </div>
                                 </section> 
                             </section>

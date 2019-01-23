@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Turmas - Professor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->
@@ -108,8 +109,8 @@
                     </div>
                         <div class="modal-body">
                             <p>Você está preste a abrir uma nova turma.</p>
-                            <p>1. Cada professor pode ter no máximo 6 turmas abertas.</p>
-                            <p>2. Se quiser criar uma turma nova, deve ter no máximo 5 turmas abertas.</p>
+                            <p>1. Será gerado um código da turma para o aluno ser registrado em sistema.</p>
+                            <p>2. O código deve ser repassado aos alunos de sua turma.</p>
                             <p>3. Turmas fechadas apenas impossibilitam a entrada de alunos nela.</p>
                         </div>
                         <div class="modal-footer">
@@ -136,28 +137,6 @@
                         <div class="modal-body">
                             <p>A Turma <strong style="color: #ff3229"><?php echo $_REQUEST['NovaTurmaCriada']; ?></strong> foi criada com sucesso!</p>
                             <p>Para alunos entrarem nela forneça o Codigo <strong style="color: #ff3229"><?php echo $_REQUEST['NovaTurmaCriada']; ?></strong> para eles usarem no cadastro!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
-                        </div>
-                </div>
-            </div>
-        </div>
-        <?php } ?>
-        
-        <!-- Modal de Erro Sucesso -->
-        <?php if(isset($_REQUEST['ErroCriacaoTurmas'])){?>
-        <div class="modal fade" id="ErroSucessoTurma" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabelModalSucesoTurma">Erro na criação da turma</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                        <div class="modal-body">
-                            <p>Houve um erro na criação da turma, você possui 6 turmas abertas, por favor feche uma turma para abrir outra!</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>

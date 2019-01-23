@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Home - Professor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="Classes/View/bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->

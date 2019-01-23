@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Configurações - Aluno - # <?php echo $User->turma; ?> #</title>
+        <title>Configurações - Aluno</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->
@@ -36,11 +37,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="Surdo.php" class="nav-link Persona-Link-Cor1">Surdo</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="Libras.php" class="nav-link Persona-Link-Cor1">Libras</a>
+                            <a href="../Controller/EncerrarLogin.php" class="nav-link Persona-Link-Cor1">Sair</a>
                         </li>
                         
                         <li class="nav-item menu-user-adpt">
@@ -59,7 +56,7 @@
                                         </div>
                                     </div>
                                     <div class="Turma-Log-Drop">
-                                        Turma: <?php echo $User->turma; ?>
+                                        Aluno
                                     </div>
                                 </section> 
                             </section>
@@ -77,12 +74,12 @@
                 
                 <section class="col-md-4">
                     <figure class="Perfil-Config">
-                        <img src="../Controller/CarregarImagens.php?FotoPerfil" alt="# Foto DO Usuario #"/>
+                        <img src="../Controller/CarregarImagens.php?FotoPerfil" alt="# Foto do Usuario #"/>
                     </figure>
-                    <form class="row" style="margin-top: 33px; padding: 10px;" method="POST" enctype="multipart/form-data" action="CarregarFotoAluno.php">
+                    <form class="row" style="margin-top: 10px; padding: 10px;" method="POST" enctype="multipart/form-data" action="CarregarFotoAluno.php">
                         <div class="col-sm-6">
                             <label class="custom-file">
-                                <input name="Foto-Formulario" type="file" id="Formulario-Foto-P-C" class="custom-file-input" accept="image/png, image/jpeg" required>
+                                <input name="Foto-Formulario" type="file" id="Formulario-Foto-P-C" class="custom-file-input" accept="image/jpeg" required>
                                 <label class="custom-file-label">Arquivo...</label>
                             </label>
                         </div>
@@ -94,20 +91,15 @@
                 
                 <section class="col-md-8">
                     
-                    <form class="container" method="POST" action="../Controller/AtualizarConfiguracoes.php">
+                    <form class="container" style="margin-top: 32px;" method="POST" action="../Controller/AtualizarConfiguracoes.php">
                         <div class="form-group">
                             <label for="Email">Endereço de E-mail: <div class="custom-control custom-checkbox"><input type="checkbox" onclick="atvDstFormularios()" class="custom-control-input" id="customCheck1"><label class="custom-control-label" for="customCheck1">Alterar?</label></div></label>
                             <div id="caixaEmailAlter"><input name="Email" type="email" disabled="" class="form-control" id="Email" placeholder="Alterar e-mail" value="<?php echo $User->email; ?>"></div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="Nome">Nome do usuário: <div class="custom-control custom-checkbox"><input type="checkbox" onclick="atvDstFormularios()" class="custom-control-input" id="customCheck2"><label class="custom-control-label" for="customCheck2">Alterar?</label></div></label>
+                            <label for="Nome">Nome do usuário: <div class="custom-control custom-checkbox" style="display: none"><input type="checkbox" onclick="atvDstFormularios()" class="custom-control-input" id="customCheck2"><label class="custom-control-label" for="customCheck2">Alterar?</label></div></label>
                             <div id="caixaNomeAlter"><input name="Nome" disabled="" type="text" class="form-control" id="Nome" placeholder="Nome do usuário" value="<?php echo $User->nome; ?>"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="Turma">Turma do usuário:</label>
-                            <input name="Turma" disabled="" type="text" class="form-control" id="Turma" placeholder="Turma" value="<?php echo $User->turma; ?>">
                         </div>
                         
                         <div class="row">

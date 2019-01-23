@@ -19,8 +19,6 @@ class Usuario {
     private $read;
     /** @var string $nome variavel responsavel por armazenar o nome do suário */
     public $nome;
-    /** @var string $turma variavel responsavel por armazenar a turma do usuário caso aluno */
-    public $turma;
     /** @var string $email variavel responsavel por armazenar o dado de email */
     public $email;
     /** @var string $ftPerfil variavel responsavel por armazenar a foto de perfil do usuário */
@@ -57,9 +55,6 @@ class Usuario {
         $Usuario = $this->read->getResultado();
         
         $this->nome = $Usuario[0]['Nome'];
-        if($this->nivel ==  "A"){
-            $this->turma = $Usuario[0]['Turma_COD_FK'];
-        }
         $this->email = $Usuario[0]['Email'];
     }
     

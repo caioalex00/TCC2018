@@ -48,7 +48,6 @@ class Respostas {
         
         $this->dadosResposta = $dadosResposta;
         $this->dadosRespostaID = $dadosRespostaID;
-        
     }
     
     /**
@@ -82,7 +81,7 @@ class Respostas {
         $num = count($this->dadosRespostaID);
         
         for($i = 0; $i < $num; $i++){
-            $create = new Create("Respostas", "ID,Texto_Resposta,Questoes_FK,Aluno_FK", "null|\|R" . $this->dadosResposta[$i] . "|\|R" . $this->dadosRespostaID[$i] . "|\|R" . $this->IDUsuario);
+            $create = new Create("Respostas", "ID,Texto_Resposta,Questoes_FK,Aluno_FK", "0|\|R" . $this->dadosResposta[$i] . "|\|R" . $this->dadosRespostaID[$i] . "|\|R" . $this->IDUsuario);
             $create ->executarQuery();
         }
         

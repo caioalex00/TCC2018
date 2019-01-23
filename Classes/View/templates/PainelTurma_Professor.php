@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Painel de Controle de Turmas - Professor - Turma: # <?php echo $_REQUEST['TurmaAplicada']?> #</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->
@@ -116,13 +117,13 @@
                     <section class="col-md-7 Turma-Controle-Status row" style="padding: 0;">
                         <p class="texto-controle col-md-5" style="padding: 0; text-align: center;margin-right: 0">Ajuda e Opções da Turma: </p>
                         <div class="col-md-2" style="padding: 0;">
-                            <button style="width: 90%; margin: 11px auto;" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="O Status da turma se refere a entrada de alunos na turma, com ele desativado alunos são impossiblitados de entrarem na turma, caso você não consiga ativar uma turma, isso se deve ao fato de ja ter 6 turmas ativas, desative uma para ativar essa.">Status</button>
+                            <button style="width: 90%; margin: 11px auto;" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="O Status da turma se refere a entrada de alunos na turma, com ele desativado alunos são impossiblitados de entrarem na turma.">Status</button>
                         </div>
                         <div class="col-md-2" style="padding: 0">
                             <button style="width: 90%; margin: 11px auto;" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="O link de provas ira levar a uma pagina que  mostrará todas as provas que o aluno fez, la você podera ver as resposta do aluno sobre a prova.">Provas</button>
                         </div>
                         <div class="col-md-3" style="padding: 0">
-                            <button style="width: 90%; margin: 11px auto;" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Os alunos estão ligado as turmas, caso uma turma seja exluida,todos os alunos serão excluidos do sistema, caso eles queriam voltar devem se cadastrar novamente em uma turma diferente! Para iniciar o processo clique aqui!">Exluir Turma</button>
+                            <button style="width: 90%; margin: 11px auto;" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Os alunos estão ligado as turmas, caso uma turma seja exluida,todos os alunos serão excluidos do sistema, caso eles queiram voltar devem se cadastrar novamente em uma turma diferente! Para iniciar o processo clique aqui!">Excluir Turma</button>
                         </div>
                         </section>
                 </section>

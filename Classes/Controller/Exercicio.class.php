@@ -154,10 +154,17 @@ class Exercicio {
     private function imprimirQuestaoRespondida($l, $alternativas, $Letras, $i){
         $qrespodinda = $this->vereficarQuestaoRespondida($this->QuestoesSP[$i - 1]['ID'], $alternativas[$l]);
         
-        if($alternativas[$l]){ ?>
+        $readF = new Read("Questoes", "ID", $alternativas[1]);
+        $readF->executarQuery();
+        $respostacorreta = $readF->getResultado();
+        $correto = $respostacorreta[0]['AlternativaCorreta'];
+        
+        if($alternativas[$l]){
+            $corretoL = $correto == $alternativas[$l];
+            ?>
             <div class="custom-control custom-radio">
                 <input name="ID_<?php print_r($this->QuestoesSP[$i - 1]['ID']); ?>" type="radio" id="questao<?php echo $l - 3?>_<?php echo $i ?>" name="customRadio" class="custom-control-input" value="<?php echo $alternativas[$l] ?>" required="" disabled="" <?php if($qrespodinda){ echo 'checked=""'; }?>>
-                <label class="custom-control-label" for="questao<?php echo $l - 3?>_<?php echo $i ?>"><?php echo $Letras[$l - 3] ?>) <?php echo $alternativas[$l] ?></label>
+                <label <?php if($corretoL){ ?> style="color: #009933" <?php } ?> class="custom-control-label" for="questao<?php echo $l - 3?>_<?php echo $i ?>"><?php echo $Letras[$l - 3] ?>) <?php echo $alternativas[$l] ?></label>
             </div>
         <?php }
     }

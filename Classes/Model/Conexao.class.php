@@ -44,10 +44,10 @@ class Conexao {
      * @parametros Sem parâmetros
      */
     private function definirValores(){
-        $this->host = "localhost";
-        $this->dbname = "librason";
-        $this->usuario = "root";
-        $this->senha = "";
+        $this->host = "200.138.149.236";
+        $this->dbname = "db_librason";
+        $this->usuario = "librason";
+        $this->senha = "librason123";
         $this->tipo = "mysql";
     }
 

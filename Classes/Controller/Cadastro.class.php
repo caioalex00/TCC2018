@@ -16,8 +16,6 @@ class Cadastro {
     private $email;
     /** @var string $senha variavel responsavel por armazenar a senha do usuário para o cadastro */
     private $senha;
-    /** @var string $turma variavel responsavel por armazenar a senha de comfirmação do usuário para o cadastro */
-    private $turma;
     /** @var string $senhaCom variavel responsavel por armazenar a Turma do usuário caso Aluno para o cadastro */
     private $senhaCom;
     /** @var string $ftPerfil variavel responsavel por armazenar a Foto de Perfil do usuário para o cadastro */
@@ -45,19 +43,17 @@ class Cadastro {
      * @param string $senha armazena a senha do aluno
      * @param string $senhaCom armazena a senha de comfirmação do aluno
      * @param string $foto armazena a foto de perfil do aluno
-     * @param string $turma armazena a turma que o aluno pertence
      * @param string $x armazena o eixo x do recorte de foto
      * @param string $y armazena o eixo y do recorte de foto
      * @param string $w armazena a lagura do recorte de foto
      * @param string $h armazena a altura do recorte de foto
      */
-    public function cadastroAluno($nome, $email, $senha, $senhaCom, $foto, $turma,$x,$y,$w,$h){
+    public function cadastroAluno($nome, $email, $senha, $senhaCom, $foto,$x,$y,$w,$h){
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
         $this->senhaCom = $senhaCom;
         $this->ftPerfil = $foto;
-        $this->turma = $turma;
         
         $ERRORValidacao = $this->validarDadosAluno();
         if($ERRORValidacao != "ERROR-0"){
@@ -111,7 +107,7 @@ class Cadastro {
      * @parametros sem parâmetros
      */
     private function validarDadosAluno(){
-        if(empty($this->nome) || empty($this->email) || empty($this->senha) || empty($this->senhaCom) || empty($this->turma) || empty($this->ftPerfil)){
+        if(empty($this->nome) || empty($this->email) || empty($this->senha) || empty($this->senhaCom) || empty($this->ftPerfil)){
             return "ERROR-Preenchimento-1";
         }else if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
             return "ERROR-Email-1";
@@ -121,8 +117,6 @@ class Cadastro {
             return "ERROR-Senha-1";
         }else if($this->senha != $this->senhaCom){
             return "ERROR-Senha-2";
-        }else if(!$this->verificarExistenciaDeTurma()){
-            return "ERROR-Turma-1";
         }else{
             return "ERROR-0";
         }
@@ -169,27 +163,6 @@ class Cadastro {
     }
     
     /**
-     * @Descrição: Verefica se a turma inserida pelo aluno existe ou se ela está aberta para receber alunos.
-     * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
-     * @versao 0.4 - 25/06/2018
-     * @parametros sem parâmetros
-     */
-    private function verificarExistenciaDeTurma(){
-        $tabela = "Turma";
-        $dadosTabela = "COD,Status"; 
-        $dadosValues = $this->turma . "," . '1';
-        $this->read1 = new Read($tabela, $dadosTabela, $dadosValues);
-        $this->read1->executarQuery();
-        $this->read1->getResultado();
-        
-        if($this->read1->getQtsResultado() != 0){
-            return TRUE;
-        }else{
-            return FALSE;
-        }
-    }
-    
-    /**
      * @Descrição: Coloca a senha digitada pelo usuario em um hash e armazena
      * @copyright (c) 06/05/2018, Caio Alexandre de Sousa Ramos
      * @versao 0.4 - 25/06/2018
@@ -207,8 +180,8 @@ class Cadastro {
      */
     private function realizarCadastroAluno(){
         $tabela = "Aluno";
-        $dadosTabela = "ID,Nome,Email,Turma_COD_FK,Senha";
-        $dadosValues = "null|\|R" . $this->nome . "|\|R" .$this->email . "|\|R" . $this->turma . "|\|R" . $this->senhaSegura;
+        $dadosTabela = "ID,Nome,Email,Senha";
+        $dadosValues = "0|\|R" . $this->nome . "|\|R" .$this->email . "|\|R" . $this->senhaSegura;
         $this->create = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create->executarQuery();
         $this->idGerado = $this->create->idGerado;
@@ -221,9 +194,9 @@ class Cadastro {
      * @parametros sem parâmetros
      */
     private function realizarCadastroProfessor(){
-        $tabela = "professor";
+        $tabela = "Professor";
         $dadosTabela = "ID,Nome,Email,Senha";
-        $dadosValues = "null|\|R" . $this->nome . "|\|R" .$this->email . "|\|R" . $this->senhaSegura;
+        $dadosValues = "0|\|R" . $this->nome . "|\|R" .$this->email . "|\|R" . $this->senhaSegura;
         $this->create = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create->executarQuery();
         $this->idGerado = $this->create->idGerado;
@@ -258,7 +231,7 @@ class Cadastro {
         
         $tabela = "Perfil_Aluno";
         $dadosTabela = "ID,Imagem,Aluno_FK";
-        $dadosValues = "null|\|R" . $conteudoF . "|\|R" . $this->idGerado;
+        $dadosValues = "0|\|R" . $conteudoF . "|\|R" . $this->idGerado;
         $this->create1 = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create1->executarQuery();
     }
@@ -292,7 +265,7 @@ class Cadastro {
         
         $tabela = "Perfil_Professor";
         $dadosTabela = "ID,Imagem,Professor_FK";
-        $dadosValues = "null|\|R" . $conteudoF . "|\|R" . $this->idGerado;
+        $dadosValues = "0|\|R" . $conteudoF . "|\|R" . $this->idGerado;
         $this->create1 = new Create($tabela, $dadosTabela, $dadosValues);
         $this->create1->executarQuery();
     }

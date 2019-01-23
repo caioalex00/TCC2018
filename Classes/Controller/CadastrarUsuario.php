@@ -20,7 +20,6 @@ if(isset($_REQUEST['Cadastrar-A'])){
     $senha = $_REQUEST['Senha-Formulario'];
     $senhaComfirmacao = $_REQUEST['ComSenha-Formulario'];
     $fotoDePerfil = $_SESSION['tmpFotoCadastroCaminho'];
-    $turma = $_REQUEST['Turma-Formulario'];
     unset($_SESSION['tmpFotoCadastroCaminho']);
     
     // Informações do Corte de Foto
@@ -31,7 +30,7 @@ if(isset($_REQUEST['Cadastrar-A'])){
     
     // Instanciando Objeto Cadastro para cadastrar Aluno no Sistema
     $cadastro = new Cadastro();
-    $cadastro -> cadastroAluno($nomeCompleto, $email, $senha, $senhaComfirmacao, $fotoDePerfil, $turma, $x, $y, $w, $h);
+    $cadastro -> cadastroAluno($nomeCompleto, $email, $senha, $senhaComfirmacao, $fotoDePerfil, $x, $y, $w, $h);
 }
 
 //Inicia processo de cadastro caso botão de cadastro do Aluno tenha sido pressionado

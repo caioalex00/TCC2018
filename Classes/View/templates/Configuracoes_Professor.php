@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Configurações Professor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->
@@ -46,7 +47,7 @@
                         <li class="nav-item menu-user-adpt">
                             <section class="UI-User-Interna row menu-user-adpt">
                                 <figure class="ft-User-Drop">
-                                    <img src="../Controller/CarregarImagens.php?FotoPerfil" alt="# Foto DO Usuario #"/>
+                                    <img src="../Controller/CarregarImagens.php?FotoPerfil" alt="# Foto do Usuario #"/>
                                 </figure>
                                 <section class="Usuario-Menu">
                                     <div class="dropdown btn-user-log">
@@ -77,7 +78,7 @@
                 
                 <section class="col-md-4">
                     <figure class="Perfil-Config" style="margin-top: 0px;">
-                        <img src="../Controller/CarregarImagens.php?FotoPerfil" alt="# Foto DO Usuario #"/>
+                        <img src="../Controller/CarregarImagens.php?FotoPerfil" alt="# Foto do Usuario #"/>
                     </figure>
                     <form class="row" style="margin-top: 20px; padding: 10px;" method="POST" enctype="multipart/form-data" action="CarregarFotoProfessor.php">
                         <div class="col-sm-6">
@@ -101,7 +102,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="Nome">Nome do usuário: <div class="custom-control custom-checkbox"><input type="checkbox" onclick="atvDstFormularios()" class="custom-control-input" id="customCheck2"><label class="custom-control-label" for="customCheck2">Alterar?</label></div></label>
+                            <label for="Nome">Nome do usuário: <div class="custom-control custom-checkbox" style="display: none"><input type="checkbox" onclick="atvDstFormularios()" class="custom-control-input" id="customCheck2"><label class="custom-control-label" for="customCheck2">Alterar?</label></div></label>
                             <div id="caixaNomeAlter"><input name="Nome" disabled="" type="text" class="form-control" id="Nome" placeholder="Nome do usuário" value="<?php echo $User->nome; ?>"></div>
                         </div>
                         

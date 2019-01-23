@@ -40,15 +40,11 @@ class ControleTurma {
      * @parametros sem parametros.
      */
     public function criarTurma(){
-        if($this->qtsTurmasAtivas < 6){
-            $COD = $this->gerarCodigoUnico();
-            $dadosValues = $COD . "|\|R" . $this->ID_Professor . "|\|R" . "1";
-            $create = new Create("turma", "COD,Professor_ID_FK,Status", $dadosValues);
-            $create->executarQuery();
-            echo "<script>window.location.href = '../View/Turmas.php?NovaTurmaCriada=" . $COD ."'</script>";
-        }else{
-            echo "<script>window.location.href = '../View/Turmas.php?ErroCriacaoTurmas'</script>";
-        }
+        $COD = $this->gerarCodigoUnico();
+        $dadosValues = $COD . "|\|R" . $this->ID_Professor . "|\|R" . "1";
+        $create = new Create("Turma", "COD,Professor_ID_FK,Status", $dadosValues);
+        $create->executarQuery();
+        echo "<script>window.location.href = '../View/Turmas.php?NovaTurmaCriada=" . $COD ."'</script>";
     }
     
     /**
@@ -59,7 +55,7 @@ class ControleTurma {
      * @param string $turma passamos a turma a ser vereficada o acesso.
      */
     public function vereficarAutorizacaoDeAcesso($turma){
-        $tabela = "turma";
+        $tabela = "Turma";
         $dadosTabela = "COD, Professor_ID_FK";
         $dadosValues = $turma . "," . $this->ID_Professor;
         $read = new Read($tabela, $dadosTabela, $dadosValues);
@@ -238,7 +234,7 @@ class ControleTurma {
      * @parametros sem parametros.
      */
     private function detectarTurmas(){
-        $read = new Read("turma", "Professor_ID_FK", $this->ID_Professor);
+        $read = new Read("Turma", "Professor_ID_FK", $this->ID_Professor);
         $read->executarQuery();
         $this->TurmasCadastradas = $read->getResultado();
     }

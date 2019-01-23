@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Home - Aluno - # <?php echo $User->turma; ?> #</title>
+        <title>Home - Aluno</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="Classes/View/bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->
@@ -36,13 +37,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="Classes/View/Surdo.php" class="nav-link Persona-Link-Cor1">Surdo</a>
+                            <a href="Classes/Controller/EncerrarLogin.php" class="nav-link Persona-Link-Cor1">Sair</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="Classes/View/Libras.php" class="nav-link Persona-Link-Cor1">Libras</a>
-                        </li>
-                        
                         <li class="nav-item menu-user-adpt">
                             <section class="UI-User-Interna row menu-user-adpt">
                                 <figure class="ft-User-Drop">
@@ -59,7 +56,7 @@
                                         </div>
                                     </div>
                                     <div class="Turma-Log-Drop">
-                                        Turma: <?php echo $User->turma; ?>
+                                        Aluno
                                     </div>
                                 </section> 
                             </section>
@@ -70,33 +67,50 @@
         </nav>
         
         <main class="Principal-Conteudo">
-            
-            <h1 class="titulo-sessoes">Navegue nas principais sessões do website</h1>
+            <div class="container">
+                
+                <h1 class="titulo-sessoes">Seja bem vindo ao Librason</h1>
             
                 <section class="row cards-link-grupo">
                     
-                        <div class="card col-md-4 persona-card-inicio link-card-sessao">
-                                <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-1.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <a href="Classes/View/Curso.php"><p class="card-text h1 link-card-sessao-titulo">AVA</p></a>
-                                </div>
-                        </div>
-                        
-                    <div class="card col-md-4 persona-card-inicio link-card-sessao">
-                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-2.png" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="Classes/View/Libras.php"><p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">LIBRAS</p></a>
+                    <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                        <div class="link-card-sessao-in">
                         </div>
                     </div>
-
-                    <div class="card col-md-4 persona-card-inicio link-card-sessao">
-                        <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-3.png" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="Classes/View/Surdo.php"><p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">SURDOS</p></a>
+                    
+                    <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                        <div class="link-card-sessao-in">
+                            <a href="Classes/View/Curso.php">
+                                <center>
+                                    <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-1.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="card-text h1 link-card-sessao-titulo">AVA</p>
+                                    </div>
+                                </center>
+                            </a>
                         </div>
                     </div>
-
+                    
+                    <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                        <div class="link-card-sessao-in">
+                            <center>
+                                <a href="Classes/Controller/EncerrarLogin.php">
+                                    <img class="card-img-top adpt-link-card-img" src="Classes/View/imgs/Cards/Card-Link-4.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="card-text h1 Alinhar-Centro link-card-sessao-titulo">SAIR</p>
+                                    </div>
+                                </a>
+                            </center>
+                        </div>
+                    </div>
+                    
+                    <div class="card col-md-3 persona-card-inicio link-card-sessao">
+                        <div class="link-card-sessao-in">
+                        </div>
+                    </div>
+                    
                 </section>
+            </div>
         </main>
         
         <footer>

@@ -11,6 +11,7 @@ echo '<script> window.location.href = "../../index.php";</script>';
         <meta charset="UTF-8">
         <title>Librason - Pagina Inicial</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.1.0-dist/css/bootstrap.css">
         <!-- Pessoal CSS -->
@@ -38,19 +39,11 @@ echo '<script> window.location.href = "../../index.php";</script>';
                         </li>
                         
                         <li class="nav-item">
-                            <a href="" class="nav-link Persona-Link-Cor1">Surdo</a>
+                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDeLogin">Login</button>
                         </li>
 
                         <li class="nav-item">
-                            <a href="" class="nav-link Persona-Link-Cor1">Libras</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDoAluno">Aluno</button>
-                        </li>
-
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDoProfessor">Professor</button>
+                            <button type="button" class="btn btn-adpt-link" data-toggle="modal" data-target="#ModalDeCadastro">Cadastro</button>
                         </li>
 
                     </ul>
@@ -171,168 +164,90 @@ echo '<script> window.location.href = "../../index.php";</script>';
             <p><span class="Logo-Footer">Libras<span class="Logo-Footer-Cor2">on</span></span> foi criado e desenvolvido por Caio Alexandre Ramos, Micaella Fernandes e Jacileia Nascimento Soares com orientação de Glaucielle Celestina de Sá e Iury Gomes</p>
         </footer>
         
-        <!-- Modals -->
-        <!-- Cadastro e Login do Aluno -->
-        <div class="modal fade" id="ModalDoAluno" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+        <!-- Modals FINALIZADOS-->
+        <!-- Modal LOGIN-->
+        <div class="modal fade" id="ModalDeLogin" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabelAluno">Login e Cadastro no AVA - Aluno</h5>
+                        <h5 class="modal-title" id="ModalLabelAluno">Login do Aluno</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
-                    <div class="modal-body Modal-Padding">
-                        <h1 class="h1 Fonte-Modal-Principal">Login</h1>
-                        <form method="POST" class="col-md Modal-Aluno Modal-Aluno-Login" action="../Controller/LogarUsuario.php">
-                            <div class="row">
-                                <div class="form-group col-md-5">
-                                    <label for="Email-Formulario-A-L">E-mail</label>
-                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-A-L" placeholder="Entre com seu e-mail">
-                                </div>
-                                
-                                <div class="form-group col-md-5">
-                                    <label for="Senha-formulario-A-L">Senha</label>
-                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-A-L" placeholder="Entre com sua senha">
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <label for="Senha-formulario"></label>
-                                    <button style="margin-top: 8px;" type="submit" name="Logar" class="btn btn-cadastro">Logar</button>
-                                </div>
+                    </div>  
+                    <div class="modal-body">
+                        <form method="POST" action="../Controller/LogarUsuario.php" >
+                            
+                            <div class="form-group">
+                                <label for="Email-Formulario">E-mail</label>
+                                <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario" placeholder="Entre com seu e-mail">
                             </div>
-                        </form>
+                          
+                            <div class="form-group">
+                                <label for="Senha-formulario">Senha</label>
+                                <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario" placeholder="Entre com sua senha">
+                                <small id="emailHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
+                            <button type="submit" name="Logar" class="btn btn-cadastro">Logar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        
+        <!-- Modals CADASTRO-->
+        <div class="modal fade" id="ModalDeCadastro" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabelAluno">Cadastro do Aluno</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>  
+                    <div class="modal-body">
                         
-                        <div class="EspacoEntre"></div>
-                        
-                        <h1 class="h1 Fonte-Modal-Principal">Cadastro</h1>
+                        <form method="POST" action="CarregarFotoAluno.php" enctype="multipart/form-data" >
+                            
                             <?php include_once '../Controller/MSGErroCadastro.php'; ?>
-                        <form method="POST" action="CarregarFotoAluno.php" class="Modal-Aluno" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="Nome-Formulario-A-C">Nome Completo</label>
-                                    <input name="Nome-Formulario" type="text" class="form-control input-cadastro" id="Nome-Formulario-A-C" placeholder="Entre com seu nome completo">
-                                </div>
+                            
+                            <div class="form-group">
+                                <label for="Nome-Formulario-A-C">Nome Completo</label>
+                                <input name="Nome-Formulario" type="text" class="form-control" id="Nome-Formulario-A-C" placeholder="Entre com seu nome completo" required="">
+                            </div>
                                 
-                                <div class="form-group col-md-6">
-                                    <label for="Email-Formulario-A-C">E-mail</label>
-                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-A-C" placeholder="Entre com seu e-mail">
-                                </div>
+                            <div class="form-group">
+                                <label for="Email-Formulario-A-C">E-mail</label>
+                                <input name="Email-Formulario" type="email" class="form-control" id="Email-Formulario-A-C" placeholder="Entre com seu e-mail" required="">
                             </div>
                             
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="Senha-formulario-A-C">Senha</label>
-                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-A-C" placeholder="Entre com sua senha">
-                                    <small id="SenhaHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
+                                    <input name="Senha-Formulario" type="password" class="form-control" minlength="8" maxlength="30" id="Senha-formulario-A-C" placeholder="Entre com sua senha" required="">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="ComSenha-Formulario-A-C">Confirmar Senha</label>
-                                    <input name="ComSenha-Formulario" type="password" class="form-control" id="ComSenha-formulario-A-C" placeholder="Entre com sua senha novamente">
+                                    <input name="ComSenha-Formulario" type="password" class="form-control" minlength="8" maxlength="30" id="ComSenha-formulario-A-C" placeholder="Senha novamente" required="">
                                 </div>
                             </div>
                             
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="Formulario-Foto-A-C">Foto de perfil</label><br>
-                                    <label class="custom-file">
-                                        <input name="Foto-Formulario" type="file" id="Formulario-Foto-P-C" class="custom-file-input" accept="image/png, image/jpeg" required>
-                                        <label class="custom-file-label">Escolha um arquivo...</label>
-                                    </label>
-                                </div>
+                            <div class="form-group">
+                                <label for="Formulario-Foto-A-C">Foto de perfil</label><br>
+                                <label class="custom-file">
+                                    <input name="Foto-Formulario" type="file" id="Formulario-Foto-P-C" class="custom-file-input" accept="image/jpeg" required>
+                                    <label class="custom-file-label">Escolha uma foto...</label>
+                                </label>
+                            </div>
                                 
-                                <div class="form-group col-md-6">
-                                    <label for="Turma-formulario-A-C">Código da Turma</label>
-                                    <input name="Turma-Formulario" type="text" class="form-control" id="Turma-formulario-A-C" placeholder="Entre com o código">
-                                </div>
-                            </div>
-                            
-                            <button type="submit" name="Cadastrar-A" class="btn btn-cadastro">Cadastrar</button>
-                        </form>
-                    </div>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-            
-        <!-- Login e Cadastro do Professor-->
-        <div class="modal fade" id="ModalDoProfessor" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabelProfessor">Login e Cadastro no AVA - Professor</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <h1 class="h1 Fonte-Modal-Principal">Login</h1>
-                        <form method="POST" class="col-md Modal-Aluno Modal-Aluno-Login" action="../Controller/LogarUsuario.php">
-                            <div class="row">
-                                <div class="form-group col-md-5">
-                                    <label for="Email-Formulario-P-L">E-mail</label>
-                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-P-L" placeholder="Entre com seu e-mail">
-                                </div>
-                                
-                                <div class="form-group col-md-5">
-                                    <label for="Senha-formulario-P-L">Senha</label>
-                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-P-L" placeholder="Entre com sua senha">
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <label for="Senha-formulario"></label>
-                                    <button style="margin-top: 8px;" type="submit" name="Logar" class="btn btn-cadastro">Logar</button>
-                                </div>
-                            </div>
-                        </form>
-                        
-                        <div class="EspacoEntre"></div>
-                        
-                        <h1 class="h1 Fonte-Modal-Principal">Cadastro</h1>
-                            <?php include '../Controller/MSGErroCadastro.php'; ?>
-                        <form method="POST" action="CarregarFotoProfessor.php" class="Modal-Aluno" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                <label for="Nome-Formulario-P-C">Nome Completo</label>
-                                <input name="Nome-Formulario" type="text" class="form-control input-cadastro" id="Nome-Formulario-P-C" placeholder="Entre com seu nome completo">
-                                </div>
-                                
-                                <div class="form-group col-md-6">
-                                    <label for="Email-Formulario-P-C">E-mail</label>
-                                    <input name="Email-Formulario" type="email" class="form-control input-cadastro" id="Email-Formulario-P-C" placeholder="Entre com seu e-mail">
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="Senha-formulario-P-C">Senha</label>
-                                    <input name="Senha-Formulario" type="password" class="form-control" id="Senha-formulario-P-C" placeholder="Entre com sua senha">
-                                    <small id="SenhaHelp" class="form-text text-muted">Você não deve compartilhar sua senha com ninguém!</small>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="ComSenha-Formulario-P-C">Confirmar Senha</label>
-                                    <input name="ComSenha-Formulario" type="password" class="form-control" id="ComSenha-formulario-P-C" placeholder="Entre com sua senha novamente">
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="form-group col-md">
-                                    <label for="Formulario-Foto-P-C">Foto de perfil</label><br>
-                                    <label class="custom-file">
-                                        <input name="Foto-Formulario" type="file" id="Formulario-Foto-P-C" class="custom-file-input" accept="image/png, image/jpeg" required>
-                                        <label class="custom-file-label">Escolha uma foto...</label>
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" name="Cadastrar-P" class="btn btn-cadastro">Cadastrar</button>
-                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sair" data-dismiss="modal">Fechar</button>
+                        <button type="submit" name="Cadastrar-A" class="btn btn-cadastro">Cadastrar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -388,14 +303,7 @@ echo '<script> window.location.href = "../../index.php";</script>';
         <!-- Erros de Cadastro Aluno-->
         <?php if( isset($_REQUEST['MSGERR'])){?>
         <script>
-                $('#ModalDoAluno').modal('show');
-        </script>
-        <?php } ?>
-        
-        <!-- Erros de Cadastro Aluno-->
-        <?php if( isset($_REQUEST['MSGERRP'])){?>
-        <script>
-                $('#ModalDoProfessor').modal('show');
+                $('#ModalDeCadastro').modal('show');
         </script>
         <?php } ?>
         

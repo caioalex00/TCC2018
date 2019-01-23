@@ -33,7 +33,7 @@ class Curso {
      * @parametros sem parâmetros
      */
     public function contarModulos(){
-        $tabela = "modulo";
+        $tabela = "Modulo";
         $read = new Read($tabela, null, null);
         $read->executarQuery();
         $this->read = $read;
